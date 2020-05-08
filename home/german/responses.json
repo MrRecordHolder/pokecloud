@@ -1,0 +1,72 @@
+{
+    "titles": {
+        "example": "Example",
+        "arguments": "Arguments",
+        "error": "Error",
+        "success": "Success"
+    },
+    
+    "permission": {
+        "channel": "This command must be used in",
+        "role": {
+            "a": "You must have the",
+            "b": "role to perform this action."
+        },
+        "noserver": "This sever is not in the database yet. Run the $setup command to get started"
+    },
+
+    "args": {
+        "country": "You must specify the full country name to save",
+        "city": "You must specify the full city name to save",
+        "state": "You must specify the full state name to save",
+        "prefix": "You must specify the new prefix to save",
+        "language": "You must specify a valid language argument",
+        "invalidLanguage": "is not currently in the database. Use the PokeCloud Discord to request a translation",
+        "role": "You must specify a valid role previously created on this Discord server",
+        "validPokemon": "You must specify a valid Pokemon name",
+        "nestName": "You must provide the nest name",
+        "nestProp": "You must provide the nest property to edit",
+        "nestData": "You must provide the new data to save to the nest property"
+    },
+
+    "deny": {
+        "role": "is not a valid role on this server",
+        "noPokemonExist": "could not be found in the PokeAPI database. Check spelling and try again. If the problem continues, contact PokeCloud support.",
+        "pokemonNestFalse": "is not a nesting species. PokeCloud uses PogoAPI for this initial data. If you find this as an error, please contact our Professors via [Discord](https://discordapp.com/invite/2st78mT).",
+        "nestExists": "already exists on this server",
+        "nestDontExist": "does not exist in the database",
+        "invalidNestProp": "is not a valid nest property",
+        "professorsDexChannel": "You must be a PokeCloud Professor and use the correct channel in the PokeCloud Discord to use this command."
+    },
+
+    "confirm": {
+        "country": "will now be used as the default country",
+        "city": "will now be used as the default city",
+        "state": "will now be used as the default state",
+        "prefix": "will now be used as the default prefix",
+        "language": "will now be used as the default language",
+        "server": {
+            "name": "will now be used as the server name"
+        },
+        "role": "will now be used as the PokeCloud admin role",
+        "reporterRole": "will now be used as the PokeCloud reporter role",
+        "nestUpdated": "has been updated to",
+        "nestAliasUpdated": "alias has been updated to"
+    },
+
+    "delete": {
+        "nest": "has been deleted"
+    },
+
+    "auto_delete": {
+        "a": "This message will auto-delete in 1 minute"
+    },
+
+    "nest": {
+        "pokestops": "Pokestops",
+        "gyms": "Gyms",
+        "exgyms": "Ex Gyms",
+        "spawns": "Spawns Per Visit",
+        "directions": "Get Directions"
+    }
+}
