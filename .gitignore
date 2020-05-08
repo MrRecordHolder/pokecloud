@@ -29,10 +29,7 @@ events/guildCreate.js
 events/guildDelete.js
 events/message.js
 events/ready.js
-home/languages.json
 home/images.json
-home/german/responses.json
-home/english/responses.json
 home/embeds/reporterRoleCheck.js
 home/embeds/adminRoleCheck.js
 home/embeds/adminChannelCheck.js
@@ -45,3 +42,4 @@ util/handler.js
 util/emoji.json
 index.js
 config.json
+commands/set-admin-channel.js
