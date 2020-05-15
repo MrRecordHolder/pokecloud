@@ -7,7 +7,6 @@ commands/dex-update.js
 commands/help.js
 commands/list-all-nests.js
 commands/migrate-nests.js
-commands/nests.js
 commands/pokedex.js
 commands/reload.js
 commands/report-nest.js
@@ -35,9 +34,6 @@ home/embeds/adminRoleCheck.js
 home/embeds/adminChannelCheck.js
 home/colors.json
 home/channels.json
-keys/defaultNest.js
-keys/goPokedex.js
-keys/guildSettings.js
 util/handler.js
 util/emoji.json
 index.js
