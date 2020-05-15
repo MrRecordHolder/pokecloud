@@ -23,6 +23,7 @@
         "language": "You must specify a valid language argument",
         "invalidLanguage": "is not currently in the database. Use the PokeCloud Discord to request a translation",
         "role": "You must specify a valid role previously created on this Discord server",
+        "channel": "You must specify a valid channel previously created on this Discord server",
         "validPokemon": "You must specify a valid Pokemon name",
         "nestName": "You must provide the nest name",
         "nestProp": "You must provide the nest property to edit",
@@ -31,6 +32,7 @@
 
     "deny": {
         "role": "is not a valid role on this server",
+        "channel": "is not a valid channel on this server",
         "noPokemonExist": "could not be found in the PokeAPI database. Check spelling and try again. If the problem continues, contact PokeCloud support.",
         "pokemonNestFalse": "is not a nesting species. PokeCloud uses PogoAPI for this initial data. If you find this as an error, please contact our Professors via [Discord](https://discordapp.com/invite/2st78mT).",
         "nestExists": "already exists on this server",
@@ -49,9 +51,13 @@
             "name": "will now be used as the server name"
         },
         "role": "will now be used as the PokeCloud admin role",
+        "channel": {
+            "admin": "will now be used as the PokeCloud admin channel"
+        },
         "reporterRole": "will now be used as the PokeCloud reporter role",
         "nestUpdated": "has been updated to",
-        "nestAliasUpdated": "alias has been updated to"
+        "nestAliasUpdated": "alias has been updated to",
+        "miscord" : "Miscord integration has been updated to"
     },
 
     "delete": {
@@ -67,6 +73,7 @@
         "gyms": "Gyms",
         "exgyms": "Ex Gyms",
         "spawns": "Spawns Per Visit",
+        "spawn_rating": "Spawn Rating",
         "directions": "Get Directions"
     }
 }
