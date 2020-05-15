@@ -56,7 +56,8 @@
         },
         "reporterRole": "will now be used as the PokeCloud reporter role",
         "nestUpdated": "has been updated to",
-        "nestAliasUpdated": "alias has been updated to"
+        "nestAliasUpdated": "alias has been updated to",
+        "miscord" : "Miscord integration has been updated to"
     },
 
     "delete": {
@@ -72,6 +73,7 @@
         "gyms": "Gyms",
         "exgyms": "Ex Gyms",
         "spawns": "Spawns Per Visit",
+        "spawn_rating": "Spawn Rating",
         "directions": "Get Directions"
     }
 }
