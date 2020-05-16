@@ -19,9 +19,17 @@ const goPokedex = {
         evolution: false,
         alolan: false
     },
-    form: {
-        alolan: false,
-        shadow: false
+    forms: [],
+    moves: {
+        fast: "",
+        elite_fast: "",
+        charged: "",
+        elite_charged: ""
+    },
+    stats:{
+        attack: "",
+        defense: "",
+        stamina: ""
     },
     nest: false
 }
