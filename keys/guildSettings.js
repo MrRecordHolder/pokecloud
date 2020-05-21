@@ -4,6 +4,7 @@ const guildSettings = {
         id: "",
         language: "English",
         prefix: "$",
+        timezone: ""
     },
     location: {
         city: "",
