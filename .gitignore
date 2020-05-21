@@ -40,3 +40,4 @@ index.js
 config.json
 commands/set-admin-channel.js
 commands/send-alert.js
+home/utilities.json
