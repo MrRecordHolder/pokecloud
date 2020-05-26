@@ -4,7 +4,7 @@ const guildSettings = {
         id: "",
         language: "English",
         prefix: "$",
-        timezone: ""
+        timezone: "-4" // eastern time by default
     },
     location: {
         city: "",
