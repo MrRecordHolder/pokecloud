@@ -12,8 +12,8 @@ const defaultNest = {
             lat: "",
             lon: "",
             google: "",
-            osm: "",
-            silphroad: ""
+            osm: "", // depreciated
+            silphroad: "" // depreciated
         }
     },
     pokestops: "?",
@@ -33,8 +33,11 @@ const defaultNest = {
     messageid: "",
     channelid: "",
     lastReport: {
-        date: "",
-        time: ""
+        date: "", // depreciated
+        time: "", // depreciated
+        year: "",
+        month: "",
+        day: "",
     },
 }
 
