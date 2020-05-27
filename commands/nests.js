@@ -48,14 +48,10 @@ exports.run = (bot, message, args) => {
             var miscord = bot.guildSettings.get(serverid, "bots.miscord")
             if(miscord === true) {
                 var NestNames = responseObject.map(key => [`🗺️ **${key.name.default}** - ${key.pokemon.current.name}`])
-            } 
-            
-            else {
+            } else {
                 var NestNames = responseObject.map(key => [`[🗺️](${key.location.maps.google}) **${key.name.default}** - ${key.pokemon.current.name}`])
             }
-        }
-        
-        else {
+        } else {
             var NestNames = responseObject.map(key => [`[🗺️](${key.location.maps.google}) **${key.name.default}** - ${key.pokemon.current.name}`])
         }
 
@@ -71,19 +67,14 @@ exports.run = (bot, message, args) => {
             if(bot.guildSettings.has(serverid, 'bots.miscord')) {
                 if(miscord === true) {
                     var NestNames = reportedNestsOnly.map(key => [`🗺️ **${key.name.default}** - ${key.pokemon.current.name}`])
-                } 
-                
-                else {
+                } else {
                     var NestNames = reportedNestsOnly.map(key => [`[**🗺️**](${key.location.maps.google}) **${key.name.default}** - ${key.pokemon.current.name}`])
-                }
-            } 
-            
-            else {
+                };
+            } else {
                 var NestNames = reportedNestsOnly.map(key => [`[**🗺️**](${key.location.maps.google}) **${key.name.default}** - ${key.pokemon.current.name}`])
-            }
-
-        }
-    }
+            };
+        };
+    };
 
     // finish building embed and send x amount
     embed.setDescription(NestNames.sort().slice(0, 10))
@@ -123,6 +114,54 @@ exports.run = (bot, message, args) => {
     if(NestNames.length > 59) {
         embed.setDescription(NestNames.sort().slice(60, 70))
         embed.setFooter(`${NestNames.sort().slice(0, 60).length} - ${NestNames.sort().slice(0, 70).length} of ${NestNames.length} total nests | Click 🗺️ for directions`)
+        message.channel.send({embed: embed})
+    }
+
+    if(NestNames.length > 69) {
+        embed.setDescription(NestNames.sort().slice(70, 80))
+        embed.setFooter(`${NestNames.sort().slice(0, 70).length} - ${NestNames.sort().slice(0, 80).length} of ${NestNames.length} total nests | Click 🗺️ for directions`)
+        message.channel.send({embed: embed})
+    }
+
+    if(NestNames.length > 79) {
+        embed.setDescription(NestNames.sort().slice(80, 90))
+        embed.setFooter(`${NestNames.sort().slice(0, 80).length} - ${NestNames.sort().slice(0, 90).length} of ${NestNames.length} total nests | Click 🗺️ for directions`)
+        message.channel.send({embed: embed})
+    }
+
+    if(NestNames.length > 89) {
+        embed.setDescription(NestNames.sort().slice(90, 100))
+        embed.setFooter(`${NestNames.sort().slice(0, 90).length} - ${NestNames.sort().slice(0, 100).length} of ${NestNames.length} total nests | Click 🗺️ for directions`)
+        message.channel.send({embed: embed})
+    }
+
+    if(NestNames.length > 99) {
+        embed.setDescription(NestNames.sort().slice(100, 110))
+        embed.setFooter(`${NestNames.sort().slice(0, 100).length} - ${NestNames.sort().slice(0, 110).length} of ${NestNames.length} total nests | Click 🗺️ for directions`)
+        message.channel.send({embed: embed})
+    }
+
+    if(NestNames.length > 109) {
+        embed.setDescription(NestNames.sort().slice(110, 120))
+        embed.setFooter(`${NestNames.sort().slice(0, 110).length} - ${NestNames.sort().slice(0, 120).length} of ${NestNames.length} total nests | Click 🗺️ for directions`)
+        message.channel.send({embed: embed})
+    }
+
+    if(NestNames.length > 119) {
+        embed.setDescription(NestNames.sort().slice(120, 130))
+        embed.setFooter(`${NestNames.sort().slice(0, 120).length} - ${NestNames.sort().slice(0, 130).length} of ${NestNames.length} total nests | Click 🗺️ for directions`)
+        message.channel.send({embed: embed})
+    }
+
+    if(NestNames.length > 129) {
+        embed.setDescription(NestNames.sort().slice(130, 140))
+        embed.setFooter(`${NestNames.sort().slice(0, 130).length} - ${NestNames.sort().slice(0, 140).length} of ${NestNames.length} total nests | Click 🗺️ for directions`)
+        message.channel.send({embed: embed})
+    }
+
+    if(NestNames.length > 139) {
+        embed.setDescription(NestNames.sort().slice(140, 150))
+        embed.setFooter(`${NestNames.sort().slice(0, 140).length} - ${NestNames.sort().slice(0, 150).length} of ${NestNames.length} total nests | Click 🗺️ for directions`)
         message.channel.send({embed: embed})
     }
 
