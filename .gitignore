@@ -5,7 +5,6 @@ commands/delete-nest.js
 commands/dex-toggle-nest.js
 commands/dex-update.js
 commands/help.js
-commands/list-all-nests.js
 commands/migrate-nests.js
 commands/pokedex.js
 commands/reload.js
