@@ -194,8 +194,38 @@ exports.run = (bot, message, args) => {
 
 
             // subcommand = reported
-            if(subcommand === "R") {
-                if(bot.defaultNest.get(key, `pokemon.current.name`) !== "?") {
+            
+
+
+
+
+            // subcommand = city
+            if(subcommand) {
+
+                if(subcommand === "R") {
+                    if(bot.defaultNest.get(key, `pokemon.current.name`) !== "?") {
+    
+                        // check for previously listed nest
+                        if(messagetodelete !== "") {
+                            try {
+                                message.guild.channels.find(c => c.id === channeltofind).fetchMessage(messagetodelete).then(oldembed => {
+                                    if(oldembed) {
+                                        oldembed.delete();
+                                    };
+                                });
+                            } catch {
+                                bot.channels.get(channels.log.error).send(`Message could not be deleted using ${this.command.name}`)
+                            };
+                        };
+    
+                        return message.channel.send(embed).then(message => {
+                            // save the sent embed message id
+                            bot.defaultNest.set(key, message.channel.lastMessageID, "messageid")
+                            bot.defaultNest.set(key, message.channel.id, "channelid")
+                        });    
+                    };
+                return } else {
+
 
                     // check for previously listed nest
                     if(messagetodelete !== "") {
@@ -210,40 +240,15 @@ exports.run = (bot, message, args) => {
                         };
                     };
 
-                    return message.channel.send(embed).then(message => {
-                        // save the sent embed message id
-                        bot.defaultNest.set(key, message.channel.lastMessageID, "messageid")
-                        bot.defaultNest.set(key, message.channel.id, "channelid")
-                    });    
-                };
-            return };
-
-
-
-
-            // subcommand = city
-            if(subcommand) {
-                // check for previously listed nest
-                if(messagetodelete !== "") {
-                    try {
-                        message.guild.channels.find(c => c.id === channeltofind).fetchMessage(messagetodelete).then(oldembed => {
-                            if(oldembed) {
-                                oldembed.delete();
-                            };
-                        });
-                    } catch {
-                        bot.channels.get(channels.log.error).send(`Message could not be deleted using ${this.command.name}`)
+                    if(bot.defaultNest.get(key, `location.city`) === subcommand) {
+                        return message.channel.send(embed).then(message => {
+                            // save the sent embed message id
+                            bot.defaultNest.set(key, message.channel.lastMessageID, "messageid")
+                            bot.defaultNest.set(key, message.channel.id, "channelid")
+                        });    
                     };
-                };
-
-                if(bot.defaultNest.get(key, `location.city`) === subcommand) {
-                    return message.channel.send(embed).then(message => {
-                        // save the sent embed message id
-                        bot.defaultNest.set(key, message.channel.lastMessageID, "messageid")
-                        bot.defaultNest.set(key, message.channel.id, "channelid")
-                    });    
-                };
-            return };
+                return };
+            }
 
 
 
