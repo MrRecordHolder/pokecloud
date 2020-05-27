@@ -19,7 +19,7 @@ module.exports.command = {
 const Discord = require("discord.js")
 const color = require("../home/colors.json")
 
-exports.run = async (bot, message, args) => { 
+exports.run = async (bot, message, args) => {
 
     let serverid = message.guild.id
     
@@ -52,7 +52,7 @@ exports.run = async (bot, message, args) => {
             .addField(respon.titles.example, Prefix + this.command.aliases + " " + this.command.example)
         message.channel.send(embed);
         return;
-    }
+    };
 
 
 
@@ -131,12 +131,16 @@ exports.run = async (bot, message, args) => {
     else if(user_timezone === "-12") {
         bot.guildSettings.set(serverid, output, "server.timezone")
     } else {
-        // timezone does not exist
-        console.log("No timezone found")
+        const embed = new Discord.RichEmbed()
+            .setColor(color.error)
+            .setAuthor(respon.titles.error)
+            .setDescription(`You must provide the UTC offset number and the + or - if the number is gerater or less than 0.`)
+            .addField(respon.titles.example, Prefix + this.command.aliases + " " + this.command.example)
+        message.channel.send(embed);
         return;
-    }
+    };
 
-    var timezone = bot.guildSettings.get(serverid, 'server.timezone')
+    var timezone = bot.guildSettings.get(serverid, 'server.timezone');
 
     const today = new Date();
 
@@ -152,7 +156,7 @@ exports.run = async (bot, message, args) => {
     else {
         console.log("Must provide a 0, + or a - number.")
         return;
-    }
+    };
 
     // format date
     let hours = (today_local.getHours());
@@ -162,7 +166,7 @@ exports.run = async (bot, message, args) => {
     }
     else if(hours>12) {
         hours=hours%12;
-    }
+    };
 
     let minutes = today_local.getMinutes();
     let ampm = today_local.getHours() > 11 ? "PM":"AM";
@@ -178,5 +182,4 @@ exports.run = async (bot, message, args) => {
         .setDescription(`The UTC timezone offset has been set to **${user_timezone}**`)
         .addField("Current Time", formatted_date)
     message.channel.send(embed);
-
 };
