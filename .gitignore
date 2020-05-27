@@ -42,3 +42,4 @@ commands/set-admin-channel.js
 commands/send-alert.js
 home/utilities.json
 SAMPLE_COMMAND.js
+commands/update-guild.js
