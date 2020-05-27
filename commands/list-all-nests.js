@@ -191,14 +191,6 @@ exports.run = (bot, message, args) => {
 
 
 
-
-
-            // subcommand = reported
-            
-
-
-
-
             // subcommand = city
             if(subcommand) {
 
@@ -248,8 +240,7 @@ exports.run = (bot, message, args) => {
                         });    
                     };
                 return };
-            }
-
+            };
 
 
             // check for previously listed nest
