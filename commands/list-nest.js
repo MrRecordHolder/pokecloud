@@ -59,6 +59,28 @@ exports.run = (bot, message, args) => {
     const spawnEmoji = bot.emojis.get(emoji.spawn);
     const exraidEmoji = bot.emojis.get(emoji.exgym);
 
+
+
+    if(!bot.defaultNest.has(key)) {
+
+        let aliasSearch = bot.defaultNest.filter(n => n.name.alias === user_nest_name);
+        let aliasServerSearch = aliasSearch.filter(n => n.serverid === serverid)
+        let nestAliasMap = aliasServerSearch.map(n => [`${n.serverid}-${n.name.default}`])
+        let nestAlias = nestAliasMap.toString()
+        console.log(nestAlias)
+
+        if(bot.defaultNest.has(nestAlias)) {
+            key = nestAlias
+        } else {
+            var embed = new Discord.RichEmbed()
+                .setColor(utilities.colors.error)
+                .setAuthor(respon.titles.error)
+                .setDescription(`**${user_nest_name}** ${respon.deny.nestDontExist}`)
+            return message.channel.send({embed: embed});
+        };
+    };
+
+
     if(bot.defaultNest.has(key)) {
 
 
@@ -187,7 +209,11 @@ exports.run = (bot, message, args) => {
             embed.setFooter(`Reported ${reported_date_formatted}`)
         } else {
             embed.setColor("#00000")
-            embed.setFooter(`Last Report ${reported_date_formatted}`)
+            if(year === "") {
+                embed.setFooter(`No reports have been made`)
+            } else {
+                embed.setFooter(`Last Report ${reported_date_formatted}`)
+            }
         }
 
         embed.setThumbnail(pokemonImage)

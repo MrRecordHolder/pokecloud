@@ -178,10 +178,18 @@ exports.run = (bot, message, args) => {
                     }
                 }
 
-                embed.setFooter(`Reported ${reported_date_formatted}`)
+                if(year === "") {
+                    embed.setFooter(`No reports have been made`)
+                } else {
+                    embed.setFooter(`Last Report ${reported_date_formatted}`)
+                }
             } else {
                 embed.setColor("#00000")
-                embed.setFooter(`Last Report ${reported_date_formatted}`)
+                if(year === "") {
+                    embed.setFooter(`No reports have been made`)
+                } else {
+                    embed.setFooter(`Last Report ${reported_date_formatted}`)
+                };
             }
 
             embed.setThumbnail(pokemonImage)
