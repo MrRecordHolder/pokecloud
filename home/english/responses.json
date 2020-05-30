@@ -5,6 +5,14 @@
         "error": "Error",
         "success": "Success"
     },
+
+    "errors": {
+        "must_be_patreon": "To access this command, you must be a Patreon. If you are a Patreon and experiencing issues, ensure you are in the PokeCloud Discord.\n[**Click here to ecome a Patreon**](https://www.patreon.com/pokecloud)\n[**Click here to join our Discord**](https://discord.com/invite/2st78mT)"
+    },
+
+
+    
+
     
     "permission": {
         "channel": "This command must be used in",
