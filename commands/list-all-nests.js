@@ -7,7 +7,7 @@ module.exports.command = {
         video: ""
     },
     description: "Lists all created nests in alphabetical order or use a subcommand to only list reported nests or nests located with-in a specific city.",
-    subcommands: "`reported`\n`[city name]`",
+    subcommands: "`r` or `reported`\n`[city name]`",
     usage: "[subcommand]",
     example: "atlanta",
     permissions: {
@@ -15,6 +15,7 @@ module.exports.command = {
         channel: "any"
     },
 }
+
 
 const Discord = require("discord.js")
 const utilities = require("../home/utilities.json")
@@ -26,7 +27,6 @@ exports.run = (bot, message, args) => {
     let serverid = message.guild.id
 
     let nest = bot.defaultNest
-    let dex = bot.goPokedex
 
     // get language & correct responses
     let language = bot.guildSettings.get(serverid, "server.language")
@@ -62,7 +62,7 @@ exports.run = (bot, message, args) => {
     let current_server_nests = nest.filter(n => n.serverid === serverid);
 
     if(subcommand.length > 0) {
-        if(subcommand === "R") {
+        if(subcommand === "R" || subcommand === "Reported") {
             let current_server_reported_nests = current_server_nests.filter(n => n.pokemon.current.name !== "?");
             var nests_to_display = current_server_reported_nests
         } else {
@@ -95,12 +95,12 @@ exports.run = (bot, message, args) => {
             let pokemonImage = nest.get(key, 'pokemon.current.image')
 
             if(nestPokemon !== "?") {
-                var dexNumber = dex.get(nestPokemon, "dex")
-                var dexPrimaryType = dex.get(nestPokemon, "type.primary")
-                var dexSecondaryType = dex.get(nestPokemon, "type.secondary")
-                var dexPrimaryBoost = dex.get(nestPokemon, "boost.primary")
-                var dexSecondaryBoost = dex.get(nestPokemon, "boost.secondary")
-                var dexShiny = dex.get(nestPokemon, "shiny.wild")
+                var dexNumber = bot.goPokedex.get(nestPokemon, "dex")
+                var dexPrimaryType = bot.goPokedex.get(nestPokemon, "type.primary")
+                var dexSecondaryType = bot.goPokedex.get(nestPokemon, "type.secondary")
+                var dexPrimaryBoost = bot.goPokedex.get(nestPokemon, "boost.primary")
+                var dexSecondaryBoost = bot.goPokedex.get(nestPokemon, "boost.secondary")
+                var dexShiny = bot.goPokedex.get(nestPokemon, "shiny.wild")
             };
             
 
