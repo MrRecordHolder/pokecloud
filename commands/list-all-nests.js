@@ -17,14 +17,16 @@ module.exports.command = {
 }
 
 const Discord = require("discord.js")
-const color = require("../home/colors.json")
-const channels = require("../home/channels.json")
+const utilities = require("../home/utilities.json")
 
 exports.run = (bot, message, args) => { 
 
     message.delete(12000)
     
     let serverid = message.guild.id
+
+    let nest = bot.defaultNest
+    let dex = bot.goPokedex
 
     // get language & correct responses
     let language = bot.guildSettings.get(serverid, "server.language")
@@ -37,13 +39,16 @@ exports.run = (bot, message, args) => {
         return adminRoleCheck.run(bot, message);
     };
 
-    let output = args.join(" ").trim().split(",")
+
+    let output = args.join(" ").trim();
+
+    var interval = 1000;
 
     function capitalize_Words(output) {
         return output.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
     };
 
-    let subcommand = capitalize_Words(output[0])
+    let subcommand = capitalize_Words(output);
 
     // emoji support
     const emoji = require("../util/emoji.json")
@@ -52,51 +57,77 @@ exports.run = (bot, message, args) => {
     const spawnEmoji = bot.emojis.get(emoji.spawn);
     const exraidEmoji = bot.emojis.get(emoji.exgym);
 
+
     
-    bot.defaultNest.keyArray().sort().forEach(key =>{
-        if(bot.defaultNest.get(key, `serverid`) === message.guild.id) {
+    let current_server_nests = nest.filter(n => n.serverid === serverid);
 
-            let nestname = bot.defaultNest.get(key, 'name.default')
-            let pokestops = bot.defaultNest.get(key, 'pokestops')
-            let gyms = bot.defaultNest.get(key, 'gyms')
-            let exgyms = bot.defaultNest.get(key, 'exgyms')
-            let spawns = bot.defaultNest.get(key, 'spawns')
-            let googleLink = bot.defaultNest.get(key, 'location.maps.google')
+    if(subcommand.length > 0) {
+        if(subcommand === "R") {
+            let current_server_reported_nests = current_server_nests.filter(n => n.pokemon.current.name !== "?");
+            var nests_to_display = current_server_reported_nests
+        } else {
+            let current_server_city_nests = current_server_nests.filter(n => n.location.city === subcommand);
+            var nests_to_display = current_server_city_nests
+        }
+    } else {
+        var nests_to_display = current_server_nests
+    };
 
-            let nestPokemon = bot.defaultNest.get(key, 'pokemon.current.name')
-            let pokemonImage = bot.defaultNest.get(key, 'pokemon.current.image')
 
-            let messagetodelete = bot.defaultNest.get(key, 'messageid')
-            let channeltofind = bot.defaultNest.get(key, 'channelid')
+    nests_to_display.keyArray().sort().forEach(function (key, index) {                
 
-            if(nestPokemon !== '?') {
-                var dexNumber = bot.goPokedex.get(nestPokemon, "dex")
-                var dexPrimaryType = bot.goPokedex.get(nestPokemon, "type.primary")
-                var ptypeEmoji = bot.emojis.find(emoji => emoji.name == `${dexPrimaryType}_pc`);
-                var dexSecondaryType = bot.goPokedex.get(nestPokemon, "type.secondary")
-                var stypeEmoji = bot.emojis.find(emoji => emoji.name == `${dexSecondaryType}_pc`);
-                var dexPrimaryBoost = bot.goPokedex.get(nestPokemon, "boost.primary")
-                var pboostEmoji = bot.emojis.find(emoji => emoji.name == `${dexPrimaryBoost}_pc`);
-                var dexSecondaryBoost = bot.goPokedex.get(nestPokemon, "boost.secondary")
-                var sboostEmoji = bot.emojis.find(emoji => emoji.name == `${dexSecondaryBoost}_pc`);
-                var dexShiny = bot.goPokedex.get(nestPokemon, "shiny.general")
-                var shinyEmoji = bot.emojis.find(emoji => emoji.name == `shiny_pc`);
+        setTimeout(function () {
+            
+            // get nest data
+            let nestname = nest.get(key, 'name.default')
+            let pokestops = nest.get(key, 'pokestops')
+            let gyms = nest.get(key, 'gyms')
+            let exgyms = nest.get(key, 'exgyms')
+            let spawns = nest.get(key, 'spawns')
+            let googleLink = nest.get(key, 'location.maps.google')
+
+            // get message & channel id
+            let messagetodelete = nest.get(key, 'messageid')
+            let channeltofind = nest.get(key, 'channelid')
+
+            // get pokemon data
+            let nestPokemon = nest.get(key, 'pokemon.current.name')
+            let pokemonImage = nest.get(key, 'pokemon.current.image')
+
+            if(nestPokemon !== "?") {
+                var dexNumber = dex.get(nestPokemon, "dex")
+                var dexPrimaryType = dex.get(nestPokemon, "type.primary")
+                var dexSecondaryType = dex.get(nestPokemon, "type.secondary")
+                var dexPrimaryBoost = dex.get(nestPokemon, "boost.primary")
+                var dexSecondaryBoost = dex.get(nestPokemon, "boost.secondary")
+                var dexShiny = dex.get(nestPokemon, "shiny.wild")
             };
+            
 
-            let day = bot.defaultNest.get(key, 'lastReport.day')
-            let month = bot.defaultNest.get(key, 'lastReport.month')
-            let year = bot.defaultNest.get(key, 'lastReport.year')
+            // emoji support
+            const emoji = require("../util/emoji.json")
+            const pokestopEmoji = bot.emojis.get(emoji.pokestop);
+            const gymEmoji = bot.emojis.get(emoji.gym);
+            const spawnEmoji = bot.emojis.get(emoji.spawn);
+            const exraidEmoji = bot.emojis.get(emoji.exgym);
+            let shinyEmoji = bot.emojis.find(emoji => emoji.name == `shiny_pc`);
+            let sboostEmoji = bot.emojis.find(emoji => emoji.name == `${dexSecondaryBoost}_pc`);
+            let pboostEmoji = bot.emojis.find(emoji => emoji.name == `${dexPrimaryBoost}_pc`);
+            let stypeEmoji = bot.emojis.find(emoji => emoji.name == `${dexSecondaryType}_pc`);
+            let ptypeEmoji = bot.emojis.find(emoji => emoji.name == `${dexPrimaryType}_pc`);
 
+            // get last report date data
+            let day = nest.get(key, 'lastReport.day')
+            let month = nest.get(key, 'lastReport.month')
+            let year = nest.get(key, 'lastReport.year')
+
+            // generate & format date
             let reported_date = new Date(year, month, day)
-
             const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
             const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
             let reported_date_formatted = `${days[reported_date.getDay()]} ${months[reported_date.getMonth()]} ${reported_date.getDate()}, ${reported_date.getFullYear()}`
 
-
-
-           // build nest embed
+            // build nest embed
             const embed = new Discord.RichEmbed()
 
             embed.setTitle(`**${nestname}**`)
@@ -106,9 +137,9 @@ exports.run = (bot, message, args) => {
             } else {
                 embed.setDescription(`[${respon.nest.directions}](${googleLink})\n${pokestopEmoji}${respon.nest.pokestops}: ${pokestops} ${gymEmoji}${respon.nest.gyms}: ${gyms}\n${exraidEmoji}${respon.nest.exgyms}: ${exgyms} ${spawnEmoji}${respon.nest.spawns}: ${spawns}`)
             }              
-            
-            if(nestPokemon !== '?') {
 
+            
+            if(nestPokemon !== "?") {
                 if(capitalize_Words(dexPrimaryType) === "Normal") {
                     embed.setColor('CCD081')
                 }
@@ -163,7 +194,8 @@ exports.run = (bot, message, args) => {
                 if(capitalize_Words(dexPrimaryType) === "Bug") {
                     embed.setColor('B1C858')
                 }
-                
+            
+            
                 if(dexShiny === true) {
                     if(dexSecondaryType === "") {
                         embed.addField(`#${dexNumber} **${nestPokemon}** ${shinyEmoji}`,`Type: ${ptypeEmoji} ${capitalize_Words(dexPrimaryType)}\nBoost: ${pboostEmoji} ${capitalize_Words(dexPrimaryBoost)}`)
@@ -183,8 +215,11 @@ exports.run = (bot, message, args) => {
                 } else {
                     embed.setFooter(`Last Report ${reported_date_formatted}`)
                 }
+
+                embed.setThumbnail(pokemonImage)
             } else {
-                embed.setColor("#00000")
+                // nest does not have a nesting species
+                embed.setThumbnail(utilities.images.unreported_nest)
                 if(year === "") {
                     embed.setFooter(`No reports have been made`)
                 } else {
@@ -192,87 +227,36 @@ exports.run = (bot, message, args) => {
                 };
             }
 
-            embed.setThumbnail(pokemonImage)
-
             // end nest embed build
 
 
+        
 
-
-            // subcommand = city
-            if(subcommand) {
-
-                if(subcommand === "R") {
-                    if(bot.defaultNest.get(key, `pokemon.current.name`) !== "?") {
-    
-                        // check for previously listed nest
-                        if(messagetodelete !== "") {
-                            try {
-                                message.guild.channels.find(c => c.id === channeltofind).fetchMessage(messagetodelete).then(oldembed => {
-                                    if(oldembed) {
-                                        oldembed.delete();
-                                    };
-                                });
-                            } catch {
-                                bot.channels.get(channels.log.error).send(`Message could not be deleted using ${this.command.name}`)
-                            };
-                        };
-    
-                        return message.channel.send(embed).then(message => {
-                            // save the sent embed message id
-                            bot.defaultNest.set(key, message.channel.lastMessageID, "messageid")
-                            bot.defaultNest.set(key, message.channel.id, "channelid")
-                        });    
-                    };
-                return } else {
-
-
-                    // check for previously listed nest
-                    if(messagetodelete !== "") {
-                        try {
-                            message.guild.channels.find(c => c.id === channeltofind).fetchMessage(messagetodelete).then(oldembed => {
-                                if(oldembed) {
-                                    oldembed.delete();
-                                };
-                            });
-                        } catch {
-                            bot.channels.get(channels.log.error).send(`Message could not be deleted using ${this.command.name}`)
-                        };
-                    };
-
-                    if(bot.defaultNest.get(key, `location.city`) === subcommand) {
-                        return message.channel.send(embed).then(message => {
-                            // save the sent embed message id
-                            bot.defaultNest.set(key, message.channel.lastMessageID, "messageid")
-                            bot.defaultNest.set(key, message.channel.id, "channelid")
-                        });    
-                    };
-                return };
-            };
-
-
-            // check for previously listed nest
             if(messagetodelete !== "") {
-                try {
-                    message.guild.channels.find(c => c.id === channeltofind).fetchMessage(messagetodelete).then(oldembed => {
-                        if(oldembed) {
-                            oldembed.delete();
-                        };
-                    });
-                } catch {
-                    bot.channels.get(channels.log.error).send(`Message could not be deleted using ${this.command.name}`)
-                };
+
+                if(bot.channels.some(ch => ch.id === channeltofind)) {
+                    try {
+                        message.guild.channels.find(c => c.id === channeltofind).fetchMessage(messagetodelete).then(oldembed => {
+                            if(oldembed) {
+                                oldembed.delete();
+                            };
+                        });
+                    } catch {
+                        // could not find the message
+                    }
+                } else {
+                    // no channel found
+                }
             };
-            
+
             // send new nest embed
             message.channel.send(embed).then(message => {
                 // save the sent embed message id
                 bot.defaultNest.set(key, message.channel.lastMessageID, "messageid")
                 bot.defaultNest.set(key, message.channel.id, "channelid")
-            });    
-            
-            
+            });
 
-        };
+
+        }, index * utilities.interval);       
     });
 };
