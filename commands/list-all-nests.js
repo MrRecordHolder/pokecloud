@@ -208,9 +208,9 @@ exports.run = (bot, message, args) => {
                     } else {
                         embed.addField(`#${dexNumber} **${nestPokemon}**`,`Types: ${ptypeEmoji} ${capitalize_Words(dexPrimaryType)} ${stypeEmoji} ${capitalize_Words(dexSecondaryType)}\nBoosts: ${pboostEmoji} ${capitalize_Words(dexPrimaryBoost)} ${sboostEmoji} ${capitalize_Words(dexSecondaryBoost)}`)
                     }
-                }
+                };
 
-                if(year === "") {
+                if(year === "" || !year) {
                     embed.setFooter(`No reports have been made`)
                 } else {
                     embed.setFooter(`Last Report ${reported_date_formatted}`)
@@ -220,12 +220,12 @@ exports.run = (bot, message, args) => {
             } else {
                 // nest does not have a nesting species
                 embed.setThumbnail(utilities.images.unreported_nest)
-                if(year === "") {
+                if(year === "" || !year) {
                     embed.setFooter(`No reports have been made`)
                 } else {
                     embed.setFooter(`Last Report ${reported_date_formatted}`)
                 };
-            }
+            };
 
             // end nest embed build
 
