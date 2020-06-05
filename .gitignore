@@ -42,3 +42,4 @@ commands/send-alert.js
 home/utilities.json
 SAMPLE_COMMAND.js
 commands/update-guild.js
+home/gamemaster.json
