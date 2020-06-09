@@ -2,7 +2,8 @@ const goPokedex = {
     name: {
         english: "",
         german: "",
-        nickname: [""]
+        french: "",
+        nickname: []
     },
     dex: "",
     type: {
@@ -16,20 +17,15 @@ const goPokedex = {
     shiny: {
         general: false,
         wild: false,
-        evolution: false,
         alolan: false
     },
     forms: [],
+    costumes: [],
     moves: {
-        fast: "",
-        elite_fast: "",
-        charged: "",
-        elite_charged: ""
-    },
-    stats:{
-        attack: "",
-        defense: "",
-        stamina: ""
+        fast: [],
+        elite_fast: [],
+        charged: [],
+        elite_charged: []
     },
     nest: false
 }
