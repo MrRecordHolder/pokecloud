@@ -27,6 +27,7 @@ const goPokedex = {
         charged: [],
         elite_charged: []
     },
+    max_cp: "",
     nest: false
 }
 
