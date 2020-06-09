@@ -1,0 +1,1583 @@
+[
+    {
+    "critical_chance": 0.05,
+    "duration": 2900,
+    "energy_delta": -33,
+    "move_id": 13,
+    "name": "Wrap",
+    "power": 60,
+    "stamina_loss_scaler": 0.06,
+    "type": "Normal"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3800,
+    "energy_delta": -100,
+    "move_id": 14,
+    "name": "Hyper Beam",
+    "power": 150,
+    "stamina_loss_scaler": 0.15,
+    "type": "Normal"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3000,
+    "energy_delta": -50,
+    "move_id": 16,
+    "name": "Dark Pulse",
+    "power": 80,
+    "stamina_loss_scaler": 0.08,
+    "type": "Dark"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2100,
+    "energy_delta": -33,
+    "move_id": 18,
+    "name": "Sludge",
+    "power": 50,
+    "stamina_loss_scaler": 0.065,
+    "type": "Poison"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1900,
+    "energy_delta": -33,
+    "move_id": 20,
+    "name": "Vice Grip",
+    "power": 35,
+    "stamina_loss_scaler": 0.055,
+    "type": "Normal"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2700,
+    "energy_delta": -50,
+    "move_id": 21,
+    "name": "Flame Wheel",
+    "power": 60,
+    "stamina_loss_scaler": 0.06,
+    "type": "Fire"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2200,
+    "energy_delta": -100,
+    "move_id": 22,
+    "name": "Megahorn",
+    "power": 110,
+    "stamina_loss_scaler": 0.12,
+    "type": "Bug"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2200,
+    "energy_delta": -50,
+    "move_id": 24,
+    "name": "Flamethrower",
+    "power": 70,
+    "stamina_loss_scaler": 0.09,
+    "type": "Fire"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 4700,
+    "energy_delta": -50,
+    "move_id": 26,
+    "name": "Dig",
+    "power": 100,
+    "stamina_loss_scaler": 0.08,
+    "type": "Ground"
+    },
+    {
+    "critical_chance": 0.25,
+    "duration": 1500,
+    "energy_delta": -50,
+    "move_id": 28,
+    "name": "Cross Chop",
+    "power": 50,
+    "stamina_loss_scaler": 0.1,
+    "type": "Fighting"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3200,
+    "energy_delta": -50,
+    "move_id": 30,
+    "name": "Psybeam",
+    "power": 70,
+    "stamina_loss_scaler": 0.065,
+    "type": "Psychic"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3600,
+    "energy_delta": -100,
+    "move_id": 31,
+    "name": "Earthquake",
+    "power": 140,
+    "stamina_loss_scaler": 0.1,
+    "type": "Ground"
+    },
+    {
+    "critical_chance": 0.5,
+    "duration": 2300,
+    "energy_delta": -100,
+    "move_id": 32,
+    "name": "Stone Edge",
+    "power": 100,
+    "stamina_loss_scaler": 0.1,
+    "type": "Rock"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1900,
+    "energy_delta": -33,
+    "move_id": 33,
+    "name": "Ice Punch",
+    "power": 50,
+    "stamina_loss_scaler": 0.075,
+    "type": "Ice"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1900,
+    "energy_delta": -33,
+    "move_id": 34,
+    "name": "Heart Stamp",
+    "power": 40,
+    "stamina_loss_scaler": 0.06,
+    "type": "Psychic"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2500,
+    "energy_delta": -33,
+    "move_id": 35,
+    "name": "Discharge",
+    "power": 65,
+    "stamina_loss_scaler": 0.08,
+    "type": "Electric"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2700,
+    "energy_delta": -100,
+    "move_id": 36,
+    "name": "Flash Cannon",
+    "power": 100,
+    "stamina_loss_scaler": 0.08,
+    "type": "Steel"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2300,
+    "energy_delta": -33,
+    "move_id": 38,
+    "name": "Drill Peck",
+    "power": 60,
+    "stamina_loss_scaler": 0.08,
+    "type": "Flying"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3300,
+    "energy_delta": -50,
+    "move_id": 39,
+    "name": "Ice Beam",
+    "power": 90,
+    "stamina_loss_scaler": 0.09,
+    "type": "Ice"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3100,
+    "energy_delta": -100,
+    "move_id": 40,
+    "name": "Blizzard",
+    "power": 130,
+    "stamina_loss_scaler": 0.11,
+    "type": "Ice"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3000,
+    "energy_delta": -100,
+    "move_id": 42,
+    "name": "Heat Wave",
+    "power": 95,
+    "stamina_loss_scaler": 0.095,
+    "type": "Fire"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2400,
+    "energy_delta": -33,
+    "move_id": 45,
+    "name": "Aerial Ace",
+    "power": 55,
+    "stamina_loss_scaler": 0.06,
+    "type": "Flying"
+    },
+    {
+    "critical_chance": 0.25,
+    "duration": 2800,
+    "energy_delta": -50,
+    "move_id": 46,
+    "name": "Drill Run",
+    "power": 80,
+    "stamina_loss_scaler": 0.08,
+    "type": "Ground"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2600,
+    "energy_delta": -100,
+    "move_id": 47,
+    "name": "Petal Blizzard",
+    "power": 110,
+    "stamina_loss_scaler": 0.09,
+    "type": "Grass"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2600,
+    "energy_delta": -50,
+    "heal_scalar": 0.5,
+    "move_id": 48,
+    "name": "Mega Drain",
+    "power": 25,
+    "stamina_loss_scaler": 0.04,
+    "type": "Grass"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3700,
+    "energy_delta": -50,
+    "move_id": 49,
+    "name": "Bug Buzz",
+    "power": 90,
+    "stamina_loss_scaler": 0.09,
+    "type": "Bug"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1700,
+    "energy_delta": -33,
+    "move_id": 50,
+    "name": "Poison Fang",
+    "power": 35,
+    "stamina_loss_scaler": 0.05,
+    "type": "Poison"
+    },
+    {
+    "critical_chance": 0.25,
+    "duration": 2200,
+    "energy_delta": -33,
+    "move_id": 51,
+    "name": "Night Slash",
+    "power": 50,
+    "stamina_loss_scaler": 0.07,
+    "type": "Dark"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1900,
+    "energy_delta": -33,
+    "move_id": 53,
+    "name": "Bubble Beam",
+    "power": 45,
+    "stamina_loss_scaler": 0.065,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2200,
+    "energy_delta": -50,
+    "move_id": 54,
+    "name": "Submission",
+    "power": 60,
+    "stamina_loss_scaler": 0.08,
+    "type": "Fighting"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1900,
+    "energy_delta": -33,
+    "move_id": 56,
+    "name": "Low Sweep",
+    "power": 40,
+    "stamina_loss_scaler": 0.065,
+    "type": "Fighting"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2600,
+    "energy_delta": -33,
+    "move_id": 57,
+    "name": "Aqua Jet",
+    "power": 45,
+    "stamina_loss_scaler": 0.04,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1900,
+    "energy_delta": -33,
+    "move_id": 58,
+    "name": "Aqua Tail",
+    "power": 50,
+    "stamina_loss_scaler": 0.09,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2100,
+    "energy_delta": -33,
+    "move_id": 59,
+    "name": "Seed Bomb",
+    "power": 55,
+    "stamina_loss_scaler": 0.08,
+    "type": "Grass"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2700,
+    "energy_delta": -33,
+    "move_id": 60,
+    "name": "Psyshock",
+    "power": 65,
+    "stamina_loss_scaler": 0.08,
+    "type": "Psychic"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3500,
+    "energy_delta": -33,
+    "move_id": 62,
+    "name": "Ancient Power",
+    "power": 70,
+    "stamina_loss_scaler": 0.06,
+    "type": "Rock"
+    },
+    {
+    "critical_chance": 0.25,
+    "duration": 3200,
+    "energy_delta": -50,
+    "move_id": 63,
+    "name": "Rock Tomb",
+    "power": 70,
+    "stamina_loss_scaler": 0.06,
+    "type": "Rock"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2700,
+    "energy_delta": -50,
+    "move_id": 64,
+    "name": "Rock Slide",
+    "power": 80,
+    "stamina_loss_scaler": 0.075,
+    "type": "Rock"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2900,
+    "energy_delta": -50,
+    "move_id": 65,
+    "name": "Power Gem",
+    "power": 80,
+    "stamina_loss_scaler": 0.08,
+    "type": "Rock"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2900,
+    "energy_delta": -33,
+    "move_id": 66,
+    "name": "Shadow Sneak",
+    "power": 50,
+    "stamina_loss_scaler": 0.04,
+    "type": "Ghost"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1700,
+    "energy_delta": -33,
+    "move_id": 67,
+    "name": "Shadow Punch",
+    "power": 40,
+    "stamina_loss_scaler": 0.06,
+    "type": "Ghost"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2300,
+    "energy_delta": -33,
+    "move_id": 69,
+    "name": "Ominous Wind",
+    "power": 50,
+    "stamina_loss_scaler": 0.06,
+    "type": "Ghost"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3000,
+    "energy_delta": -50,
+    "move_id": 70,
+    "name": "Shadow Ball",
+    "power": 100,
+    "stamina_loss_scaler": 0.08,
+    "type": "Ghost"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2800,
+    "energy_delta": -33,
+    "move_id": 72,
+    "name": "Magnet Bomb",
+    "power": 70,
+    "stamina_loss_scaler": 0.06,
+    "type": "Steel"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1900,
+    "energy_delta": -50,
+    "move_id": 74,
+    "name": "Iron Head",
+    "power": 60,
+    "stamina_loss_scaler": 0.08,
+    "type": "Steel"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2800,
+    "energy_delta": -50,
+    "heal_scalar": 0.5,
+    "move_id": 75,
+    "name": "Parabolic Charge",
+    "power": 25,
+    "stamina_loss_scaler": 0.05,
+    "type": "Electric"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1800,
+    "energy_delta": -33,
+    "move_id": 77,
+    "name": "Thunder Punch",
+    "power": 45,
+    "stamina_loss_scaler": 0.075,
+    "type": "Electric"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2400,
+    "energy_delta": -100,
+    "move_id": 78,
+    "name": "Thunder",
+    "power": 100,
+    "stamina_loss_scaler": 0.11,
+    "type": "Electric"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2500,
+    "energy_delta": -50,
+    "move_id": 79,
+    "name": "Thunderbolt",
+    "power": 80,
+    "stamina_loss_scaler": 0.09,
+    "type": "Electric"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2800,
+    "energy_delta": -33,
+    "move_id": 80,
+    "name": "Twister",
+    "power": 45,
+    "stamina_loss_scaler": 0.04,
+    "type": "Dragon"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3600,
+    "energy_delta": -50,
+    "move_id": 82,
+    "name": "Dragon Pulse",
+    "power": 90,
+    "stamina_loss_scaler": 0.085,
+    "type": "Dragon"
+    },
+    {
+    "critical_chance": 0.25,
+    "duration": 1700,
+    "energy_delta": -33,
+    "move_id": 83,
+    "name": "Dragon Claw",
+    "power": 50,
+    "stamina_loss_scaler": 0.08,
+    "type": "Dragon"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3900,
+    "energy_delta": -33,
+    "move_id": 84,
+    "name": "Disarming Voice",
+    "power": 70,
+    "stamina_loss_scaler": 0.04,
+    "type": "Fairy"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2600,
+    "energy_delta": -50,
+    "heal_scalar": 1,
+    "move_id": 85,
+    "name": "Draining Kiss",
+    "power": 60,
+    "stamina_loss_scaler": 0.05,
+    "type": "Fairy"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3500,
+    "energy_delta": -50,
+    "move_id": 86,
+    "name": "Dazzling Gleam",
+    "power": 100,
+    "stamina_loss_scaler": 0.08,
+    "type": "Fairy"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3900,
+    "energy_delta": -100,
+    "move_id": 87,
+    "name": "Moonblast",
+    "power": 130,
+    "stamina_loss_scaler": 0.095,
+    "type": "Fairy"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2900,
+    "energy_delta": -50,
+    "move_id": 88,
+    "name": "Play Rough",
+    "power": 90,
+    "stamina_loss_scaler": 0.1,
+    "type": "Fairy"
+    },
+    {
+    "critical_chance": 0.25,
+    "duration": 1500,
+    "energy_delta": -33,
+    "move_id": 89,
+    "name": "Cross Poison",
+    "power": 40,
+    "stamina_loss_scaler": 0.07,
+    "type": "Poison"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2300,
+    "energy_delta": -50,
+    "move_id": 90,
+    "name": "Sludge Bomb",
+    "power": 80,
+    "stamina_loss_scaler": 0.09,
+    "type": "Poison"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3200,
+    "energy_delta": -100,
+    "move_id": 91,
+    "name": "Sludge Wave",
+    "power": 110,
+    "stamina_loss_scaler": 0.095,
+    "type": "Poison"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3100,
+    "energy_delta": -100,
+    "move_id": 92,
+    "name": "Gunk Shot",
+    "power": 130,
+    "stamina_loss_scaler": 0.12,
+    "type": "Poison"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1600,
+    "energy_delta": -33,
+    "move_id": 94,
+    "name": "Bone Club",
+    "power": 40,
+    "stamina_loss_scaler": 0.065,
+    "type": "Ground"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3500,
+    "energy_delta": -50,
+    "move_id": 95,
+    "name": "Bulldoze",
+    "power": 80,
+    "stamina_loss_scaler": 0.06,
+    "type": "Ground"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2300,
+    "energy_delta": -33,
+    "move_id": 96,
+    "name": "Mud Bomb",
+    "power": 55,
+    "stamina_loss_scaler": 0.065,
+    "type": "Ground"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2900,
+    "energy_delta": -50,
+    "move_id": 99,
+    "name": "Signal Beam",
+    "power": 75,
+    "stamina_loss_scaler": 0.075,
+    "type": "Bug"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1600,
+    "energy_delta": -33,
+    "move_id": 100,
+    "name": "X Scissor",
+    "power": 45,
+    "stamina_loss_scaler": 0.08,
+    "type": "Bug"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3800,
+    "energy_delta": -33,
+    "move_id": 101,
+    "name": "Flame Charge",
+    "power": 70,
+    "stamina_loss_scaler": 0.05,
+    "type": "Fire"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2600,
+    "energy_delta": -50,
+    "move_id": 102,
+    "name": "Flame Burst",
+    "power": 70,
+    "stamina_loss_scaler": 0.07,
+    "type": "Fire"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 4200,
+    "energy_delta": -100,
+    "move_id": 103,
+    "name": "Fire Blast",
+    "power": 140,
+    "stamina_loss_scaler": 0.11,
+    "type": "Fire"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2300,
+    "energy_delta": -50,
+    "move_id": 104,
+    "name": "Brine",
+    "power": 60,
+    "stamina_loss_scaler": 0.065,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3200,
+    "energy_delta": -50,
+    "move_id": 105,
+    "name": "Water Pulse",
+    "power": 70,
+    "stamina_loss_scaler": 0.06,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3700,
+    "energy_delta": -50,
+    "move_id": 106,
+    "name": "Scald",
+    "power": 80,
+    "stamina_loss_scaler": 0.08,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3300,
+    "energy_delta": -100,
+    "move_id": 107,
+    "name": "Hydro Pump",
+    "power": 130,
+    "stamina_loss_scaler": 0.11,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2800,
+    "energy_delta": -50,
+    "move_id": 108,
+    "name": "Psychic",
+    "power": 90,
+    "stamina_loss_scaler": 0.09,
+    "type": "Psychic"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2300,
+    "energy_delta": -50,
+    "move_id": 109,
+    "name": "Psystrike",
+    "power": 90,
+    "stamina_loss_scaler": 0.1,
+    "type": "Psychic"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3300,
+    "energy_delta": -33,
+    "move_id": 111,
+    "name": "Icy Wind",
+    "power": 60,
+    "stamina_loss_scaler": 0.055,
+    "type": "Ice"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3900,
+    "energy_delta": -100,
+    "heal_scalar": 0.5,
+    "move_id": 114,
+    "name": "Giga Drain",
+    "power": 50,
+    "stamina_loss_scaler": 0.075,
+    "type": "Grass"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2200,
+    "energy_delta": -33,
+    "move_id": 115,
+    "name": "Fire Punch",
+    "power": 55,
+    "stamina_loss_scaler": 0.075,
+    "type": "Fire"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 4900,
+    "energy_delta": -100,
+    "move_id": 116,
+    "name": "Solar Beam",
+    "power": 180,
+    "stamina_loss_scaler": 0.12,
+    "type": "Grass"
+    },
+    {
+    "critical_chance": 0.25,
+    "duration": 2400,
+    "energy_delta": -33,
+    "move_id": 117,
+    "name": "Leaf Blade",
+    "power": 70,
+    "stamina_loss_scaler": 0.09,
+    "type": "Grass"
+    },
+    {
+    "duration": 2600,
+    "energy_delta": -50,
+    "move_id": 118,
+    "name": "Power Whip",
+    "power": 90,
+    "stamina_loss_scaler": 0.12,
+    "type": "Grass"
+    },
+    {
+    "critical_chance": 0.25,
+    "duration": 2700,
+    "energy_delta": -50,
+    "move_id": 121,
+    "name": "Air Cutter",
+    "power": 60,
+    "stamina_loss_scaler": 0.06,
+    "type": "Flying"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2700,
+    "energy_delta": -100,
+    "move_id": 122,
+    "name": "Hurricane",
+    "power": 110,
+    "stamina_loss_scaler": 0.11,
+    "type": "Flying"
+    },
+    {
+    "critical_chance": 0.25,
+    "duration": 1600,
+    "energy_delta": -33,
+    "move_id": 123,
+    "name": "Brick Break",
+    "power": 40,
+    "stamina_loss_scaler": 0.075,
+    "type": "Fighting"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2800,
+    "energy_delta": -50,
+    "move_id": 125,
+    "name": "Swift",
+    "power": 60,
+    "stamina_loss_scaler": 0.06,
+    "type": "Normal"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1850,
+    "energy_delta": -33,
+    "move_id": 126,
+    "name": "Horn Attack",
+    "power": 40,
+    "stamina_loss_scaler": 0.065,
+    "type": "Normal"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1700,
+    "energy_delta": -50,
+    "move_id": 127,
+    "name": "Stomp",
+    "power": 55,
+    "stamina_loss_scaler": 0.065,
+    "type": "Normal"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2500,
+    "energy_delta": -50,
+    "move_id": 129,
+    "name": "Hyper Fang",
+    "power": 80,
+    "stamina_loss_scaler": 0.08,
+    "type": "Normal"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1900,
+    "energy_delta": -33,
+    "move_id": 131,
+    "name": "Body Slam",
+    "power": 50,
+    "stamina_loss_scaler": 0.085,
+    "type": "Normal"
+    },
+    {
+    "duration": 1900,
+    "energy_delta": -33,
+    "heal_scalar": 1,
+    "move_id": 132,
+    "name": "Rest",
+    "power": 50,
+    "stamina_loss_scaler": 0,
+    "type": "Normal"
+    },
+    {
+    "duration": 2200,
+    "energy_delta": 0,
+    "move_id": 133,
+    "name": "Struggle",
+    "power": 35,
+    "stamina_loss_scaler": 0.1,
+    "type": "Normal"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 4700,
+    "energy_delta": -100,
+    "move_id": 134,
+    "name": "Scald Blastoise",
+    "power": 50,
+    "stamina_loss_scaler": 0.08,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 4500,
+    "energy_delta": -100,
+    "move_id": 135,
+    "name": "Hydro Pump Blastoise",
+    "power": 90,
+    "stamina_loss_scaler": 0.11,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2900,
+    "energy_delta": -33,
+    "move_id": 136,
+    "name": "Wrap Green",
+    "power": 25,
+    "stamina_loss_scaler": 0.06,
+    "type": "Normal"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2900,
+    "energy_delta": -33,
+    "move_id": 137,
+    "name": "Wrap Pink",
+    "power": 25,
+    "stamina_loss_scaler": 0.06,
+    "type": "Normal"
+    },
+    {
+    "duration": 1000,
+    "energy_delta": 6,
+    "move_id": 232,
+    "name": "Water Gun Blastoise",
+    "power": 10,
+    "stamina_loss_scaler": 0.01,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2300,
+    "energy_delta": -100,
+    "move_id": 245,
+    "name": "Close Combat",
+    "power": 100,
+    "stamina_loss_scaler": 0.04,
+    "type": "Fighting"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2700,
+    "energy_delta": -50,
+    "move_id": 246,
+    "name": "Dynamic Punch",
+    "power": 90,
+    "stamina_loss_scaler": 0.04,
+    "type": "Fighting"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3500,
+    "energy_delta": -100,
+    "move_id": 247,
+    "name": "Focus Blast",
+    "power": 140,
+    "stamina_loss_scaler": 0.04,
+    "type": "Fighting"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3550,
+    "energy_delta": -50,
+    "move_id": 248,
+    "name": "Aurora Beam",
+    "power": 80,
+    "stamina_loss_scaler": 0.04,
+    "type": "Ice"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2600,
+    "energy_delta": -50,
+    "move_id": 251,
+    "name": "Wild Charge",
+    "power": 90,
+    "stamina_loss_scaler": 0.04,
+    "type": "Electric"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3700,
+    "energy_delta": -100,
+    "move_id": 252,
+    "name": "Zap Cannon",
+    "power": 140,
+    "stamina_loss_scaler": 0.04,
+    "type": "Electric"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2700,
+    "energy_delta": -50,
+    "move_id": 254,
+    "name": "Avalanche",
+    "power": 90,
+    "stamina_loss_scaler": 0.04,
+    "type": "Ice"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2000,
+    "energy_delta": -100,
+    "move_id": 256,
+    "name": "Brave Bird",
+    "power": 90,
+    "stamina_loss_scaler": 0.04,
+    "type": "Flying"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2000,
+    "energy_delta": -50,
+    "move_id": 257,
+    "name": "Sky Attack",
+    "power": 80,
+    "stamina_loss_scaler": 0.04,
+    "type": "Flying"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 4000,
+    "energy_delta": -33,
+    "move_id": 258,
+    "name": "Sand Tomb",
+    "power": 60,
+    "stamina_loss_scaler": 0.04,
+    "type": "Ground"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2100,
+    "energy_delta": -33,
+    "move_id": 259,
+    "name": "Rock Blast",
+    "power": 50,
+    "stamina_loss_scaler": 0.04,
+    "type": "Rock"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3700,
+    "energy_delta": -33,
+    "move_id": 262,
+    "name": "Silver Wind",
+    "power": 70,
+    "stamina_loss_scaler": 0.04,
+    "type": "Bug"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2600,
+    "energy_delta": -50,
+    "move_id": 265,
+    "name": "Night Shade",
+    "power": 60,
+    "stamina_loss_scaler": 0.04,
+    "type": "Ghost"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3300,
+    "energy_delta": -50,
+    "move_id": 267,
+    "name": "Gyro Ball",
+    "power": 80,
+    "stamina_loss_scaler": 0.04,
+    "type": "Steel"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2100,
+    "energy_delta": -50,
+    "move_id": 268,
+    "name": "Heavy Slam",
+    "power": 70,
+    "stamina_loss_scaler": 0.04,
+    "type": "Steel"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 4000,
+    "energy_delta": -100,
+    "move_id": 270,
+    "name": "Overheat",
+    "power": 160,
+    "stamina_loss_scaler": 0.04,
+    "type": "Fire"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2600,
+    "energy_delta": -50,
+    "move_id": 272,
+    "name": "Grass Knot",
+    "power": 90,
+    "stamina_loss_scaler": 0.04,
+    "type": "Grass"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3900,
+    "energy_delta": -50,
+    "move_id": 273,
+    "name": "Energy Ball",
+    "power": 90,
+    "stamina_loss_scaler": 0.04,
+    "type": "Grass"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2700,
+    "energy_delta": -100,
+    "move_id": 275,
+    "name": "Futuresight",
+    "power": 120,
+    "stamina_loss_scaler": 0.04,
+    "type": "Psychic"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2600,
+    "energy_delta": -50,
+    "move_id": 276,
+    "name": "Mirror Coat",
+    "power": 60,
+    "stamina_loss_scaler": 0.04,
+    "type": "Psychic"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3900,
+    "energy_delta": -50,
+    "move_id": 277,
+    "name": "Outrage",
+    "power": 110,
+    "stamina_loss_scaler": 0.04,
+    "type": "Dragon"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 3200,
+    "energy_delta": -33,
+    "move_id": 279,
+    "name": "Crunch",
+    "power": 70,
+    "stamina_loss_scaler": 0.04,
+    "type": "Dark"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2000,
+    "energy_delta": -50,
+    "move_id": 280,
+    "name": "Foul Play",
+    "power": 70,
+    "stamina_loss_scaler": 0.04,
+    "type": "Dark"
+    },
+    {
+    "duration": 1700,
+    "energy_delta": -50,
+    "move_id": 284,
+    "name": "Surf",
+    "power": 65,
+    "stamina_loss_scaler": 0.01,
+    "type": "Water"
+    },
+    {
+    "duration": 3600,
+    "energy_delta": -100,
+    "move_id": 285,
+    "name": "Draco Meteor",
+    "power": 150,
+    "stamina_loss_scaler": 0.01,
+    "type": "Dragon"
+    },
+    {
+    "duration": 1700,
+    "energy_delta": -33,
+    "move_id": 286,
+    "name": "Doom Desire",
+    "power": 70,
+    "stamina_loss_scaler": 0.01,
+    "type": "Steel"
+    },
+    {
+    "duration": 4000,
+    "energy_delta": -50,
+    "move_id": 288,
+    "name": "Psycho Boost",
+    "power": 70,
+    "stamina_loss_scaler": 0.01,
+    "type": "Psychic"
+    },
+    {
+    "duration": 1700,
+    "energy_delta": -100,
+    "move_id": 289,
+    "name": "Origin Pulse",
+    "power": 130,
+    "stamina_loss_scaler": 0.01,
+    "type": "Water"
+    },
+    {
+    "duration": 1700,
+    "energy_delta": -100,
+    "move_id": 290,
+    "name": "Precipice Blades",
+    "power": 130,
+    "stamina_loss_scaler": 0.01,
+    "type": "Ground"
+    },
+    {
+    "duration": 1600,
+    "energy_delta": -33,
+    "move_id": 292,
+    "name": "Weather Ball Fire",
+    "power": 60,
+    "stamina_loss_scaler": 0.01,
+    "type": "Fire"
+    },
+    {
+    "duration": 1600,
+    "energy_delta": -33,
+    "move_id": 293,
+    "name": "Weather Ball Ice",
+    "power": 60,
+    "stamina_loss_scaler": 0.01,
+    "type": "Ice"
+    },
+    {
+    "duration": 1600,
+    "energy_delta": -33,
+    "move_id": 294,
+    "name": "Weather Ball Rock",
+    "power": 60,
+    "stamina_loss_scaler": 0.01,
+    "type": "Normal"
+    },
+    {
+    "duration": 1600,
+    "energy_delta": -33,
+    "move_id": 295,
+    "name": "Weather Ball Water",
+    "power": 60,
+    "stamina_loss_scaler": 0.01,
+    "type": "Water"
+    },
+    {
+    "duration": 2600,
+    "energy_delta": -50,
+    "move_id": 296,
+    "name": "Frenzy Plant",
+    "power": 100,
+    "stamina_loss_scaler": 0.01,
+    "type": "Grass"
+    },
+    {
+    "duration": 3300,
+    "energy_delta": -50,
+    "move_id": 298,
+    "name": "Blast Burn",
+    "power": 110,
+    "stamina_loss_scaler": 0.01,
+    "type": "Fire"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 1900,
+    "energy_delta": -50,
+    "move_id": 299,
+    "name": "Hydro Cannon",
+    "power": 90,
+    "stamina_loss_scaler": 0.065,
+    "type": "Water"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2900,
+    "energy_delta": -50,
+    "move_id": 300,
+    "name": "Last Resort",
+    "power": 90,
+    "stamina_loss_scaler": 0.065,
+    "type": "Normal"
+    },
+    {
+    "critical_chance": 0.05,
+    "duration": 2600,
+    "energy_delta": -50,
+    "move_id": 301,
+    "name": "Meteor Mash",
+    "power": 100,
+    "stamina_loss_scaler": 0.065,
+    "type": "Steel"
+    },
+    {
+    "duration": 3100,
+    "energy_delta": -100,
+    "move_id": 302,
+    "name": "Skull Bash",
+    "power": 130,
+    "stamina_loss_scaler": 0.01,
+    "type": "Normal"
+    },
+    {
+    "duration": 3000,
+    "energy_delta": -50,
+    "move_id": 303,
+    "name": "Acid Spray",
+    "power": 20,
+    "stamina_loss_scaler": 0.01,
+    "type": "Poison"
+    },
+    {
+    "duration": 3600,
+    "energy_delta": -50,
+    "move_id": 304,
+    "name": "Earth Power",
+    "power": 100,
+    "stamina_loss_scaler": 0.01,
+    "type": "Ground"
+    },
+    {
+    "duration": 1900,
+    "energy_delta": -50,
+    "move_id": 305,
+    "name": "Crabhammer",
+    "power": 85,
+    "stamina_loss_scaler": 0.01,
+    "type": "Water"
+    },
+    {
+    "duration": 2900,
+    "energy_delta": 0,
+    "move_id": 306,
+    "name": "Lunge",
+    "power": 0,
+    "stamina_loss_scaler": 0.01,
+    "type": "Bug"
+    },
+    {
+    "duration": 1900,
+    "energy_delta": 0,
+    "move_id": 307,
+    "name": "Crush Claw",
+    "power": 0,
+    "stamina_loss_scaler": 0.01,
+    "type": "Normal"
+    },
+    {
+    "duration": 2300,
+    "energy_delta": -50,
+    "move_id": 308,
+    "name": "Octazooka",
+    "power": 50,
+    "stamina_loss_scaler": 0.01,
+    "type": "Water"
+    },
+    {
+    "duration": 2400,
+    "energy_delta": -33,
+    "move_id": 309,
+    "name": "Mirror Shot",
+    "power": 50,
+    "stamina_loss_scaler": 0.01,
+    "type": "Steel"
+    },
+    {
+    "duration": 3000,
+    "energy_delta": -50,
+    "move_id": 310,
+    "name": "Super Power",
+    "power": 85,
+    "stamina_loss_scaler": 0.01,
+    "type": "Fighting"
+    },
+    {
+    "duration": 2200,
+    "energy_delta": -33,
+    "move_id": 311,
+    "name": "Fell Stinger",
+    "power": 50,
+    "stamina_loss_scaler": 0.01,
+    "type": "Bug"
+    },
+    {
+    "duration": 3100,
+    "energy_delta": -33,
+    "move_id": 312,
+    "name": "Leaf Tornado",
+    "power": 45,
+    "stamina_loss_scaler": 0.01,
+    "type": "Grass"
+    },
+    {
+    "duration": 2500,
+    "energy_delta": 0,
+    "move_id": 313,
+    "name": "Leech Life",
+    "power": 0,
+    "stamina_loss_scaler": 0.01,
+    "type": "Bug"
+    },
+    {
+    "duration": 2400,
+    "energy_delta": 0,
+    "move_id": 314,
+    "name": "Drain Punch",
+    "power": 0,
+    "stamina_loss_scaler": 0.01,
+    "type": "Fighting"
+    },
+    {
+    "duration": 2800,
+    "energy_delta": 0,
+    "move_id": 315,
+    "name": "Shadow Bone",
+    "power": 0,
+    "stamina_loss_scaler": 0.01,
+    "type": "Ghost"
+    },
+    {
+    "duration": 2200,
+    "energy_delta": -33,
+    "move_id": 316,
+    "name": "Muddy Water",
+    "power": 50,
+    "stamina_loss_scaler": 0.01,
+    "type": "Water"
+    },
+    {
+    "duration": 1200,
+    "energy_delta": -33,
+    "move_id": 317,
+    "name": "Blaze Kick",
+    "power": 45,
+    "stamina_loss_scaler": 0.01,
+    "type": "Fire"
+    },
+    {
+    "duration": 1300,
+    "energy_delta": 0,
+    "move_id": 318,
+    "name": "Razor Shell",
+    "power": 0,
+    "stamina_loss_scaler": 0.01,
+    "type": "Water"
+    },
+    {
+    "duration": 2000,
+    "energy_delta": -33,
+    "move_id": 319,
+    "name": "Power Up Punch",
+    "power": 50,
+    "stamina_loss_scaler": 0.01,
+    "type": "Fighting"
+    },
+    {
+    "duration": 4700,
+    "energy_delta": -100,
+    "move_id": 321,
+    "name": "Giga Impact",
+    "power": 200,
+    "stamina_loss_scaler": 0.01,
+    "type": "Normal"
+    },
+    {
+    "duration": 2000,
+    "energy_delta": -33,
+    "move_id": 322,
+    "name": "Frustration",
+    "power": 10,
+    "stamina_loss_scaler": 0.01,
+    "type": "Normal"
+    },
+    {
+    "duration": 700,
+    "energy_delta": -33,
+    "move_id": 323,
+    "name": "Return",
+    "power": 35,
+    "stamina_loss_scaler": 0.01,
+    "type": "Normal"
+    },
+    {
+    "duration": 2600,
+    "energy_delta": -50,
+    "move_id": 324,
+    "name": "Synchronoise",
+    "power": 80,
+    "stamina_loss_scaler": 0.01,
+    "type": "Psychic"
+    },
+    {
+    "duration": 1900,
+    "energy_delta": 0,
+    "move_id": 328,
+    "name": "Horn Drill",
+    "power": 0,
+    "stamina_loss_scaler": 0.01,
+    "type": "Normal"
+    },
+    {
+    "duration": 2800,
+    "energy_delta": 0,
+    "move_id": 329,
+    "name": "Fissure",
+    "power": 0,
+    "stamina_loss_scaler": 0.01,
+    "type": "Ground"
+    },
+    {
+    "duration": 1200,
+    "energy_delta": -33,
+    "move_id": 330,
+    "name": "Sacred Sword",
+    "power": 55,
+    "stamina_loss_scaler": 0.01,
+    "type": "Fighting"
+    },
+    {
+    "duration": 2300,
+    "energy_delta": -50,
+    "move_id": 331,
+    "name": "Flying Press",
+    "power": 110,
+    "stamina_loss_scaler": 0.01,
+    "type": "Fighting"
+    },
+    {
+    "duration": 1800,
+    "energy_delta": -50,
+    "move_id": 332,
+    "name": "Aura Sphere",
+    "power": 90,
+    "stamina_loss_scaler": 0.01,
+    "type": "Fighting"
+    },
+    {
+    "duration": 3600,
+    "energy_delta": -50,
+    "move_id": 334,
+    "name": "Rock Wrecker",
+    "power": 110,
+    "stamina_loss_scaler": 0.01,
+    "type": "Rock"
+    }
+    ]
