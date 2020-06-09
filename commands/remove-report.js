@@ -7,7 +7,7 @@ module.exports.command = {
         video: ""
     },
     description: "Removes the last report for the specified nest with-in the current community.",
-    usage: "<nest name>>",
+    usage: "<nest name>",
     example: "hilton park",
     permissions: {
         role: "admin",
