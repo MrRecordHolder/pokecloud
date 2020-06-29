@@ -207,7 +207,6 @@ exports.run = (bot, message, args) => {
 
 
 
-
             
 
 
@@ -257,7 +256,30 @@ exports.run = (bot, message, args) => {
 
             
 
+            if(nestchannel === "") {
+                // generate new embed
+                const embed_confirm = new Discord.RichEmbed()
 
+                // save species name
+                nest.set(nestKey, nestPokemon, 'pokemon.current.name')
+
+                if(dexShiny === true) { // if the species can be found shiny in the wild
+                    pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}-shiny@3x.png?raw=true`
+                    nest.set(nestKey, pokemonImg, 'pokemon.current.image')
+                    embed_confirm.setThumbnail(pokemonImg)
+                } else { // if the species can not be found shiny in the wild
+                    pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}@3x.png?raw=true`
+                    nest.set(nestKey, pokemonImg, 'pokemon.current.image')
+                };
+
+                // RESPONSE MESSAGE
+                embed_confirm.setThumbnail(pokemonImg)
+                embed_confirm.setColor(color.caution)
+                embed_confirm.setAuthor(respon.titles.caution)
+                embed_confirm.setDescription(`**${nestPokemon}** has been reported at **${nestName}**\n*This nest is not listed in any channels, so no message was updated. Reported data was saved.*`)
+                embed_confirm.setThumbnail(pokemonImg)
+                return message.channel.send(embed_confirm)
+            };
 
 
             // attempt to edit embed
