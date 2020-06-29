@@ -8,7 +8,6 @@ commands/help.js
 commands/migrate-nests.js
 commands/pokedex.js
 commands/reload.js
-commands/report-nest.js
 commands/revert-nests.js
 commands/search-nests.js
 commands/set-admin-role.js
