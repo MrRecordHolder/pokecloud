@@ -7,7 +7,7 @@ module.exports.command = {
         video: ""
     },
     description: "Toggles a specific species shiny availability.",
-    subcommands: "`general`\n`wild`\n`evolution`\n`alolan`",
+    subcommands: "`general`\n`wild`\n`alolan`",
     usage: "<pokemon>, <subcommand>",
     example: "pikachu, wild",
     permissions: {
@@ -49,7 +49,7 @@ exports.run = (bot, message, args) => {
         if(dex.has(pokemon)) {
             if(dex.hasProp(pokemon, `shiny.${subcommand}`)) {
 
-                let toggle = dex.get(pokemon, subcommand)
+                let toggle = dex.get(pokemon, `shiny.${subcommand}`)
                 toggle = !toggle
 
                 dex.delete(pokemon, toggle, subcommand)
