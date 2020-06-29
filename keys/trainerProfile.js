@@ -10,10 +10,11 @@ const trainerProfile = {
         // profile creation = 50
         // set-friend-code = 35
         // report-nests = 10
-        // update-nest = 10
-        // create-nests = 5
+        // update-nest = 5
+        // create-nests = 10
         // search-nests = 2
         // pokedex = 2
+        // farm = 5
         level: 1
         // 1 = 0-100
         // 2 = 101-200
