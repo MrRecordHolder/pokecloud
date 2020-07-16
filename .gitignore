@@ -20,7 +20,6 @@ commands/set-sever-name.js
 commands/set-state.js
 commands/setup.js
 commands/test.js
-commands/update-nest.js
 commands/view-settings.js
 events/guildCreate.js
 events/guildDelete.js
