@@ -30,7 +30,7 @@ exports.run = (bot, message, args) => {
 
     // get language & correct responses
     let language = bot.guildSettings.get(serverid, "server.language")
-    const respon = require("../home/" + language.toLowerCase() + "/responses.json")
+    const respon = require("../home/languages/" + language.toLowerCase() + ".json")
 
     // check role
     let adminrole = bot.guildSettings.get(serverid, 'roles.admin')
@@ -92,7 +92,6 @@ exports.run = (bot, message, args) => {
 
             // get pokemon data
             let nestPokemon = nest.get(key, 'pokemon.current.name')
-            let pokemonImage = nest.get(key, 'pokemon.current.image')
 
             if(nestPokemon !== "?") {
                 var dexNumber = bot.goPokedex.get(nestPokemon, "dex")
@@ -101,6 +100,8 @@ exports.run = (bot, message, args) => {
                 var dexPrimaryBoost = bot.goPokedex.get(nestPokemon, "boost.primary")
                 var dexSecondaryBoost = bot.goPokedex.get(nestPokemon, "boost.secondary")
                 var dexShiny = bot.goPokedex.get(nestPokemon, "shiny.wild")
+
+                var pokemonImage = nest.get(key, 'pokemon.current.image')
             };
             
 
