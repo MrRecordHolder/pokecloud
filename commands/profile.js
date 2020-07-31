@@ -48,16 +48,18 @@ exports.run = (bot, message, args) => {
 
     const trainerProfile = require("../keys/trainerProfile")
 
-    // create profile using trainerProfile key
-    profile.ensure(userid, trainerProfile);
+    if(!profile.has(userid)) {
+        bot.channels.get(utilities.channels.profile_log).send(`**${userid}** | (${nickname}) has created their profile.`)
+    };
 
-    // auto-update nickname
-    profile.set(userid, nickname, 'trainer.name')
+    // create profile using trainerProfile key
+    profile.ensure(userid, trainerProfile);    
 
     // auto-update patreon
     if(bot.guilds.get(utilities.server_id).members.get(userid).roles.some(role => role.id === utilities.roles.patreon)) {
         profile.set(userid, true, 'patreon')
     };
+
 
     // get profile data
     let farming = profile.get(userid, 'farm')
@@ -65,6 +67,7 @@ exports.run = (bot, message, args) => {
     let patreon = profile.get(userid, 'patreon')
     let points = profile.get(userid, 'stats.total_points')
     let level = profile.get(userid, 'stats.level')
+    let nest_reports = profile.get(userid, 'stats.nest_reports')
 
     const embed = new Discord.RichEmbed()
     embed.setColor("RANDOM")
@@ -76,14 +79,18 @@ exports.run = (bot, message, args) => {
     };   
 
     embed.setTitle(`**${nickname}** *(${user.presence.status})*`) 
-    
+
+    embed.setDescription(`Level: ${level} | Points: ${points}\nNest Reports: ${nest_reports}`)    
 
     // display trainer code
     if(friend_code !== "") {
         embed.addField(`**Trainer Code**`, friend_code)
     } else {
         embed.addField(`**Trainer Code**`, `Not Set`)
-    }
+    };
+
+    // farming notifications
+    embed.addField(`**Farming**`, `*Coming Soon...*`)
 
     // display roles
     embed.addField(`**Current Server Roles**`, message.guild.member(user).roles.map(r => r).join(" , "))
