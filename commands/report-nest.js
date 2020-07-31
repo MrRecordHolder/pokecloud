@@ -26,10 +26,12 @@ exports.run = (bot, message, args) => {
     let guildSettings = bot.guildSettings
     let dex = bot.goPokedex
     let nest = bot.defaultNest
+    let profile = bot.trainerProfile
 
     // assign id shortcuts
     let serverid = message.guild.id
     let current_channel = message.channel.id
+    let userid = message.author.id
 
     // get language & correct responses
     let language = guildSettings.get(serverid, "server.language")
@@ -430,6 +432,13 @@ exports.run = (bot, message, args) => {
                 embed_confirm.setThumbnail(pokemonImg)
                 return message.channel.send(embed_confirm)
             });
+
+            // check for trainer profile
+            if(profile.has(userid)) {
+                profile.inc(userid, 'stats.nest_reports')
+            };
+
+
         } else { // species can not nest
             var embed = new Discord.RichEmbed()
                 .setAuthor(respon.titles.error)
