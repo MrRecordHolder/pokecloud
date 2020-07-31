@@ -7,7 +7,7 @@ const trainerProfile = {
         code: ""
     },
     stats: {
-        report_count: 0,
+        nest_reports: 0,
         total_points: 0,
         level: 1
     },
