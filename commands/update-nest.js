@@ -34,17 +34,6 @@ exports.run = (bot, message, args) => {
     let language = bot.guildSettings.get(serverid, "server.language")
     const respon = require("../home/" + language.toLowerCase() + "/responses.json")
 
-    // must be developer
-    if (message.author.id !== "373660480532643861") {
-        var developer = new Discord.RichEmbed()
-            .setColor(utilities.colors.error)
-            .setTitle("Only the developer can use this command")    
-        return message.channel.send({embed: developer})
-        .then(deleteIT => {
-            deleteIT.delete(2000)
-        });
-    };
-
     let output = args.join(" ").trim().split(",")    
 
     let mapName = args.join("+").split(",")
