@@ -57,7 +57,7 @@ exports.run = (bot, message, args) => {
 
     if(profile.has(userid)) {
         profile.set(userid, the_code, 'trainer.code')
-        message.reply(`Your Trainer code has been updated to **${the_code}**. To share your code, type **$mycode** in any channel. Others Trainers can then quickly copy & paste it into their game.`)
+        message.reply(`Your Trainer code has been updated to **${the_code}**. To share your code, type **$mycode** in any channel. Other Trainers can then quickly copy & paste it into their game.`)
     } else {
         message.reply(`You need to create your profile before setting your Trainer code. Reply back with **$profile** to create one now!`)
     };
