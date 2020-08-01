@@ -66,7 +66,8 @@
         "reporterRole": "will now be used as the PokeCloud reporter role",
         "nestUpdated": "has been updated to",
         "nestAliasUpdated": "alias has been updated to",
-        "miscord" : "Miscord integration has been updated to"
+        "miscord" : "Miscord integration has been updated to",
+        "autoclean": "Auto-Clean feature has been updated to"
     },
 
     "delete": {
