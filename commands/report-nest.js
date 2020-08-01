@@ -18,6 +18,7 @@ module.exports.command = {
 const Discord = require("discord.js")
 const color = require("../home/colors.json")
 const image = require("../home/images.json")
+const utilities = require(`../home/utilities.json`)
 
 
 exports.run = (bot, message, args) => {
@@ -402,10 +403,14 @@ exports.run = (bot, message, args) => {
                     };
                 message.channel.send(embed_confirm).then(msg => {
                     if(current_channel === nestchannel) {
-                        setTimeout(function(){ 
-                            message.delete()
-                            msg.delete()
-                        }, 60000);
+                        message.delete(utilities.intervals.thirty_sec)
+                        msg.delete(utilities.intervals.thirty_sec)
+                    };
+
+                    let autoclean = guildSettings.get(serverid, 'autoclean')
+                    if(autoclean === true) {
+                        msg.delete(utilities.intervals.thirty_sec)
+                        message.delete(utilities.intervals.thirty_sec)
                     };
                 });
             }).catch(errors => { // embed message not found
