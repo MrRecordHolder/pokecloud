@@ -24,6 +24,12 @@ const guildSettings = {
         tagrole: "",
         tagchannel: ""
     },
+
+    // bots: {
+        // miscord: false
+    // }
+    
+    // autoclean: false
 }
 
 module.exports = guildSettings
