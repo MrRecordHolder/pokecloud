@@ -1,6 +1,6 @@
 module.exports.command = {
     name: "delete-profile",
-    aliases: ["dp"],
+    aliases: ["dprofile"],
     category: "Profile",
     link: {
         docs: "https://pokecloud.gitbook.io/pokecloud/v/public/commands/delete-profile",
@@ -26,18 +26,6 @@ exports.run = (bot, message, args) => {
 
     let user = message.mentions.users.first() || message.author
     let nickname = message.guild.member(user).displayName
-
-
-    // must be developer
-    if (message.author.id !== "373660480532643861") {
-        var developer = new Discord.RichEmbed()
-            .setColor(utilities.colors.error)
-            .setTitle("Only the developer can use this command")    
-        return message.channel.send({embed: developer})
-        .then(deleteIT => {
-            deleteIT.delete(2000)
-        });
-    };
 
     // get language & correct responses
     let language = guildSettings.get(serverid, "server.language")
