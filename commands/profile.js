@@ -48,18 +48,30 @@ exports.run = (bot, message, args) => {
 
     const trainerProfile = require("../keys/trainerProfile")
 
+    ///// LOG NEW USER
     if(!profile.has(userid)) {
-        bot.channels.get(utilities.channels.profile_log).send(`**${userid}** | (${nickname}) has created their profile.`)
+        var profile_created = new Discord.RichEmbed()
+            .setTitle(`Profile Created`)
+            .setColor(utilities.colors.success)
+            .setTitle(`User: ${nickname}\nDiscord ID: ${userid}\nServer ID: ${serverid}`)
+        bot.channels.get(utilities.channels.profile_log).send({embed: profile_created})
     };
 
     // create profile using trainerProfile key
-    profile.ensure(userid, trainerProfile);    
+    profile.ensure(userid, trainerProfile);  
+    
 
     // auto-update patreon
+    
     if(bot.guilds.get(utilities.server_id).members.get(userid).roles.some(role => role.id === utilities.roles.patreon)) {
-        profile.set(userid, true, 'patreon')
+        let current_patreon = profile.get(userid, 'patreon')
+        if(current_patreon === false) {
+            profile.set(userid, true, 'patreon')
+            let current_points = profile.get(userid, 'stats.total_points')
+            let patreon_bonus_points = current_points + 10
+            profile.set(userid, patreon_bonus_points, 'stats.total_points')
+        };
     };
-
 
     // get profile data
     let farming = profile.get(userid, 'farm')
@@ -68,6 +80,20 @@ exports.run = (bot, message, args) => {
     let points = profile.get(userid, 'stats.total_points')
     let level = profile.get(userid, 'stats.level')
     let nest_reports = profile.get(userid, 'stats.nest_reports')
+    let trainer_name = profile.get(userid, 'trainer.name')
+    let home_server = profile.get(userid, 'discord.serverid')
+
+
+    // set home server
+    if(home_server === "") {
+        profile.set(userid, serverid, 'discord.serverid')
+    };
+
+
+    // get emojis
+    let level_emoji = bot.emojis.get(utilities.emojis.level)
+    let points_emoji = bot.emojis.get(utilities.emojis.points)
+    let reports_emoji = bot.emojis.get(utilities.emojis.reports)
 
     const embed = new Discord.RichEmbed()
     embed.setColor("RANDOM")
@@ -78,24 +104,25 @@ exports.run = (bot, message, args) => {
         embed.setAuthor(`Patreon Donor!`, `https://decentered.co.uk/wp-content/uploads/2019/12/patreon-logo-png-badge-7.png`)
     };   
 
-    embed.setTitle(`**${nickname}** *(${user.presence.status})*`) 
+    if(trainer_name !== "") {
+        embed.setTitle(`**${trainer_name}** *(${user.presence.status})*`) 
+    } else {
+        embed.setTitle(`**${nickname}** *(${user.presence.status})*`) 
+    }
 
-    embed.setDescription(`Level: ${level} | Points: ${points}\nNest Reports: ${nest_reports}`)    
+    embed.setDescription(`${level_emoji}Level: ${level} | ${points_emoji}Points: ${points}`)
+
+    embed.addField(`**Nest Stats**`, `Reports: ${nest_reports}`)
 
     // display trainer code
     if(friend_code !== "") {
-        embed.addField(`**Trainer Code**`, friend_code)
+        embed.addField(`**Trainer Code**`, `||${friend_code}||`)
     } else {
         embed.addField(`**Trainer Code**`, `Not Set`)
     };
 
-    // farming notifications
-    embed.addField(`**Farming**`, `*Coming Soon...*`)
-
     // display roles
     embed.addField(`**Current Server Roles**`, message.guild.member(user).roles.map(r => r).join(" , "))
     
-    message.channel.send(embed);
-
-      
+    message.channel.send(embed);      
 };
