@@ -1,6 +1,6 @@
 module.exports.command = {
     name: "mycode",
-    aliases: ["code"],
+    aliases: ["mc"],
     category: "Profile",
     link: {
         docs: "https://pokecloud.gitbook.io/pokecloud/v/public/commands/code",
