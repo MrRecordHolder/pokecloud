@@ -49,18 +49,6 @@ exports.run = (bot, message, args) => {
     profile.ensure(userid, trainerProfile);  
     
 
-    // auto-update patreon
-    
-    if(bot.guilds.get(utilities.server_id).members.get(userid).roles.some(role => role.id === utilities.roles.patreon)) {
-        let current_patreon = profile.get(userid, 'patreon')
-        if(current_patreon === false) {
-            profile.set(userid, true, 'patreon')
-            let current_points = profile.get(userid, 'stats.total_points')
-            let patreon_bonus_points = current_points + 10
-            profile.set(userid, patreon_bonus_points, 'stats.total_points')
-        };
-    };
-
     // get profile data
     let farming = profile.get(userid, 'farm')
     let friend_code = profile.get(userid, 'trainer.code')
