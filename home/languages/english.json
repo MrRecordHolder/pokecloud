@@ -75,7 +75,8 @@
     },
 
     "auto_delete": {
-        "a": "This message will auto-delete in 1 minute"
+        "a": "This message will auto-delete in 1 minute",
+        "b": "This message will auto-delete in a few seconds"
     },
 
     "nest": {
