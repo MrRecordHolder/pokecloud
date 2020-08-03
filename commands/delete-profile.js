@@ -15,6 +15,7 @@ module.exports.command = {
     },
 }
 
+const Discord = require("discord.js")
 const utilities = require("../home/utilities.json")
 
 exports.run = (bot, message, args) => {
