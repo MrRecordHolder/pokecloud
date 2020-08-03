@@ -107,7 +107,48 @@ exports.run = (bot, message, args) => {
     var nestPokemon = capitalize_Words(output[1]).trim()
     var nestPokemonLow = output[1].trim().toLowerCase()
 
-    // ensure species exisits, if not search for the key using current servers language settings
+
+
+    let nestserverid = nest.get(nestKey, 'serverid')
+
+
+
+
+
+
+
+
+
+    ///// UNREPORT NEST
+    if(nestPokemon === `?`) {
+        
+        if(nestserverid === serverid) {
+            const embed_unconfirm = new Discord.RichEmbed()
+            // save unreported name & image
+            nest.set(nestKey, `?`, 'pokemon.current.name')
+            nest.set(nestKey, `https://github.com/MrRecordHolder/pokecloud/blob/master/images/emojis/spawn.png?raw=true`, `pokemon.current.image`)
+            // RESPONSE
+            embed_unconfirm.setColor(color.success)
+            embed_unconfirm.setAuthor(respon.titles.success)
+            embed_unconfirm.setDescription(`**${nestName} has been unreported.**`)
+            embed_unconfirm.setThumbnail(`https://github.com/MrRecordHolder/pokecloud/blob/master/images/emojis/spawn.png?raw=true`)
+            return message.channel.send(embed_unconfirm)
+        };
+    };
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    /////// ENSURE POKEMON SPECIES EXIST
     if(!dex.has(nestPokemon)) {
 
         let nestPokemonNonEnglish = dex.findKey(p => p.name[language.toLowerCase()] === nestPokemon);
@@ -133,60 +174,40 @@ exports.run = (bot, message, args) => {
         var nestPokemonLow = nestPokemonNonEnglish.toLowerCase();
     };
 
+
+
+
+
+
+
+
+
+
+
+
     
+
+    
+
+
+
+
+
+
+
+
+
+
     // ensure nest is created by the current server
-    let nestserverid = nest.get(nestKey, 'serverid')
     if(nestserverid === serverid) {
 
-
-
-
-
-
-
-
-
-
-
-
-        // unreport the nest
-        if(nestPokemon === `?`) {
-            // generate new embed
-            const embed_unconfirm = new Discord.RichEmbed()
-
-            // save unreported name & image
-            nest.set(nestKey, `?`, 'pokemon.current.name')
-            nest.set(nestKey, `https://github.com/MrRecordHolder/pokecloud/blob/master/images/emojis/spawn.png?raw=true`, `pokemon.current.image`)
-
-            // RESPONSE MESSAGE
-            embed_unconfirm.setThumbnail(pokemonImg)
-            embed_unconfirm.setColor(color.caution)
-            embed_unconfirm.setAuthor(respon.titles.caution)
-            embed_unconfirm.setDescription(`**${nestPokemon}** has been reported at **${nestName}**\n*This nest is not listed in any channels, so no message was updated. Reported data was saved.*`)
-            embed_unconfirm.setThumbnail(pokemonImg)
-            return message.channel.send(embed_unconfirm)
-        };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
         // ensure species can nest
         let nestable = dex.get(nestPokemon, 'nest')
         if(nestable === true) {
 
             // get reported species data
-            let messageid = nest.get(nestKey, 'messageid')
             let dexNumber = dex.get(nestPokemon, "dex")
             let dexPrimaryType = dex.get(nestPokemon, "type.primary")
             let ptypeEmoji = bot.emojis.find(emoji => emoji.name == `${dexPrimaryType}_pc`);
@@ -201,11 +222,42 @@ exports.run = (bot, message, args) => {
             
             // get other needed data
             let nestchannel = nest.get(nestKey, 'channelid')
+            let messageid = nest.get(nestKey, 'messageid')
+            let currently_nesting = nest.get(nestKey, "pokemon.current.name")
+            let ac_nestreports = guildSettings.get(serverid, 'autoclean.nestreports')
 
 
 
 
 
+
+
+
+            /////// CHECK FOR DUPLICATE REPORT
+            if(currently_nesting === nestPokemon) {
+                return message.reply(`${nestPokemon} has already been reported nesting at ${nestName}`).then(msg => {
+                    message.delete(utilities.intervals.smooth)
+                    msg.delete(utilities.intervals.smooth)
+                });
+            };
+
+
+
+
+
+
+
+            /////// TRAINER PROFILE CHECK
+            if(profile.has(userid)) {
+                message.react('👤')
+                profile.inc(userid, 'stats.nest_reports')
+            };
+
+
+
+
+
+            
 
 
 
@@ -259,30 +311,14 @@ exports.run = (bot, message, args) => {
 
             
 
-            if(nestchannel === "") {
-                // generate new embed
-                const embed_confirm = new Discord.RichEmbed()
 
-                // save species name
-                nest.set(nestKey, nestPokemon, 'pokemon.current.name')
 
-                if(dexShiny === true) { // if the species can be found shiny in the wild
-                    pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}-shiny@3x.png?raw=true`
-                    nest.set(nestKey, pokemonImg, 'pokemon.current.image')
-                    embed_confirm.setThumbnail(pokemonImg)
-                } else { // if the species can not be found shiny in the wild
-                    pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}@3x.png?raw=true`
-                    nest.set(nestKey, pokemonImg, 'pokemon.current.image')
-                };
 
-                // RESPONSE MESSAGE
-                embed_confirm.setThumbnail(pokemonImg)
-                embed_confirm.setColor(color.caution)
-                embed_confirm.setAuthor(respon.titles.caution)
-                embed_confirm.setDescription(`**${nestPokemon}** has been reported at **${nestName}**\n*This nest is not listed in any channels, so no message was updated. Reported data was saved.*`)
-                embed_confirm.setThumbnail(pokemonImg)
-                return message.channel.send(embed_confirm)
-            };
+
+
+
+
+            setTimeout(function () {
 
 
             // attempt to edit embed
@@ -398,50 +434,45 @@ exports.run = (bot, message, args) => {
                     embed_confirm.setAuthor(respon.titles.success)
                     embed_confirm.setDescription(`**${nestPokemon}** has been reported at **${nestName}**\n[**Click here to view the nest**](${Discord_message_link})`)
                     embed_confirm.setThumbnail(pokemonImg)
-                    if(current_channel === nestchannel) {
-                        embed_confirm.setFooter(respon.auto_delete.a, image.warning)
+                    if(current_channel === nestchannel || ac_nestreports === true) {
+                        embed_confirm.setFooter(respon.auto_delete.b, image.warning)
                     };
                 message.channel.send(embed_confirm).then(msg => {
-                    if(current_channel === nestchannel) {
+                    if(current_channel === nestchannel || ac_nestreports === true) {
                         message.delete(utilities.intervals.thirty_sec)
                         msg.delete(utilities.intervals.thirty_sec)
-                    };
-
-                    let autoclean = guildSettings.get(serverid, 'autoclean')
-                    if(autoclean === true) {
-                        msg.delete(utilities.intervals.thirty_sec)
-                        message.delete(utilities.intervals.thirty_sec)
                     };
                 });
             }).catch(errors => { // embed message not found
-                // generate new embed
                 const embed_confirm = new Discord.RichEmbed()
-
-                // save species name
                 nest.set(nestKey, nestPokemon, 'pokemon.current.name')
-
                 if(dexShiny === true) { // if the species can be found shiny in the wild
                     pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}-shiny@3x.png?raw=true`
-                    nest.set(nestKey, pokemonImg, 'pokemon.current.image')
-                    embed_confirm.setThumbnail(pokemonImg)
                 } else { // if the species can not be found shiny in the wild
                     pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}@3x.png?raw=true`
-                    nest.set(nestKey, pokemonImg, 'pokemon.current.image')
                 };
 
-                // RESPONSE MESSAGE
+                nest.set(nestKey, pokemonImg, 'pokemon.current.image')
+
+                // RESPONSE
                 embed_confirm.setThumbnail(pokemonImg)
-                embed_confirm.setColor(color.caution)
-                embed_confirm.setAuthor(respon.titles.caution)
-                embed_confirm.setDescription(`**${nestPokemon}** has been reported at **${nestName}**\n*This nest is not listed in any channels, so no message was updated. Reported data was saved.*`)
-                embed_confirm.setThumbnail(pokemonImg)
-                return message.channel.send(embed_confirm)
+                embed_confirm.setColor(color.success)
+                embed_confirm.setAuthor(respon.titles.success)
+                embed_confirm.setDescription(`**${nestPokemon}** has been reported at **${nestName}**`)
+                if(current_channel === nestchannel || ac_nestreports === true) {
+                    embed_confirm.setFooter(`${nestName} is not currently listed in any channels. ${respon.auto_delete.b}`, image.warning)
+                };
+                return message.channel.send(embed_confirm).then(msg => {
+                    if(current_channel === nestchannel || ac_nestreports === true) {
+                        message.delete(utilities.intervals.thirty_sec)
+                        msg.delete(utilities.intervals.thirty_sec)
+                    };
+                });
             });
 
-            // check for trainer profile
-            if(profile.has(userid)) {
-                profile.inc(userid, 'stats.nest_reports')
-            };
+            }, utilities.intervals.responses);
+
+            
 
 
         } else { // species can not nest
