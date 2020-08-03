@@ -31,17 +31,6 @@ exports.run = (bot, message, args) => {
     let nickname = message.guild.member(user).displayName
 
 
-    // must be developer
-    if (message.author.id !== "373660480532643861") {
-        var developer = new Discord.RichEmbed()
-            .setColor(utilities.colors.error)
-            .setTitle("Only the developer can use this command")    
-        return message.channel.send({embed: developer})
-        .then(deleteIT => {
-            deleteIT.delete(2000)
-        });
-    };
-
     // get language & correct responses
     let language = guildSettings.get(serverid, "server.language")
     const respon = require("../home/" + language.toLowerCase() + "/responses.json")
@@ -49,9 +38,15 @@ exports.run = (bot, message, args) => {
     let trainer_code = profile.get(userid, 'trainer.code')
 
     if(trainer_code !== "") {
-        message.channel.send(`${trainer_code}`);
+        message.channel.send(`${trainer_code}`).then(msg => {
+            message.delete(utilities.intervals.thirty_sec)
+            msg.delete(utilities.intervals.thirty_sec)
+        });
     } else {
-        message.reply(`You have not set your Trainer code yet. Do so by using the **$set-mycode** command.`)
+        message.reply(`You have not set your Trainer code yet. Do so by using the **$set-mycode** command.`).then(msg => {
+            message.delete(utilities.intervals.thirty_sec)
+            msg.delete(utilities.intervals.thirty_sec)
+        });
     }
 
 };
