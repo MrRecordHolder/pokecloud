@@ -41,20 +41,20 @@ exports.run = async (bot, message) => {
     };
 
 
-    if(!bot.guildSettings.has(serverid, 'autoclean')) {
-        bot.guildSettings.set(serverid, false, "autoclean")
+    if(!bot.guildSettings.has(serverid, 'autoclean.nestreports')) {
+        bot.guildSettings.set(serverid, false, "autoclean.nestreports")
     } 
 
-    var autoclean = bot.guildSettings.get(serverid, "autoclean")
+    var autoclean = bot.guildSettings.get(serverid, "autoclean.nestreports")
 
     autoclean = !autoclean
 
-    bot.guildSettings.set(serverid, autoclean, "autoclean")
+    bot.guildSettings.set(serverid, autoclean, "autoclean.nestreports")
     
     // send confirmation
     var embed = new Discord.RichEmbed()
         .setAuthor(respon.titles.success)
         .setColor(color.success)
-        .setTitle(`${respon.confirm.autoclean} **${autoclean}**`)
+        .setTitle(`Autocleaning for nest reports have been updated to **${autoclean}**`)
     message.channel.send({embed});
 };
