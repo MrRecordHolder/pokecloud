@@ -251,6 +251,7 @@ exports.run = (bot, message, args) => {
             if(profile.has(userid)) {
                 message.react('👤')
                 profile.inc(userid, 'stats.nest_reports')
+                profile.inc(userid, 'stats.total_points')
             };
 
 
