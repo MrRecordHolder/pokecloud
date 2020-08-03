@@ -41,7 +41,7 @@ exports.run = (bot, message, args) => {
         var profile_created = new Discord.RichEmbed()
             .setTitle(`Profile Created`)
             .setColor(utilities.colors.success)
-            .setTitle(`User: ${nickname}\nDiscord ID: ${userid}\nServer ID: ${serverid}`)
+            .setDescription(`User: ${nickname}\nDiscord ID: ${userid}\nServer ID: ${serverid}`)
         bot.channels.get(utilities.channels.profile_log).send({embed: profile_created})
     };
 
