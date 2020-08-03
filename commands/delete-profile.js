@@ -34,7 +34,11 @@ exports.run = (bot, message, args) => {
     if(profile.has(userid)) {
         profile.delete(userid)
         message.reply(`Your profile and all data associated with it has been deleted from the PokeCloud servers.`)
-        bot.channels.get(utilities.channels.profile_log).send(`**${userid}** | (${nickname}) has deleted their profile from the database.`)
+        var profile_created = new Discord.RichEmbed()
+            .setTitle(`Profile Deleted`)
+            .setColor(utilities.colors.error)
+            .setDescription(`User: ${nickname}\nDiscord ID: ${userid}\nServer ID: ${serverid}`)
+        bot.channels.get(utilities.channels.profile_log).send({embed: profile_created})
     } else {
         message.channel.send(`No profile found...`)
     };
