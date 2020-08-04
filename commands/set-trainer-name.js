@@ -37,9 +37,15 @@ exports.run = (bot, message, args) => {
 
     if(profile.has(userid)) {
         profile.set(userid, trainerName, 'trainer.name')
-        message.reply(`Your Trainer name has been updated to **${trainerName}**.`)
+        message.reply(`Your Trainer name has been updated to **${trainerName}**.`).then(msg => {
+            message.delete(utilities.intervals.responses)
+            msg.delete(utilities.intervals.thirty_sec)
+        });
     } else {
-        message.reply(`You need to create your profile before setting your Trainer name. Reply back with **$profile** to create one now!`)
+        message.reply(`You need to create your profile before setting your Trainer name. Reply back with **$profile** to create one now!`).then(msg => {
+            message.delete(utilities.intervals.responses)
+            msg.delete(utilities.intervals.thirty_sec)
+        });
     };
 
 };
