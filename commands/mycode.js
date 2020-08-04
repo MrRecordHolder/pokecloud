@@ -37,14 +37,21 @@ exports.run = (bot, message, args) => {
 
     let trainer_code = profile.get(userid, 'trainer.code')
 
+    if(!profile.has(userid)) {
+        return message.reply(`You need to create your profile before setting your Trainer name. Reply back with **$profile** to create one now!`).then(msg => {
+            message.delete(utilities.intervals.responses)
+            msg.delete(utilities.intervals.thirty_sec)
+        });
+    };
+
     if(trainer_code !== "") {
         message.channel.send(`${trainer_code}`).then(msg => {
-            message.delete(utilities.intervals.thirty_sec)
-            msg.delete(utilities.intervals.thirty_sec)
+            message.delete(utilities.intervals.responses)
+            msg.delete(utilities.intervals.two_minutes)
         });
     } else {
         message.reply(`You have not set your Trainer code yet. Do so by using the **$set-mycode** command.`).then(msg => {
-            message.delete(utilities.intervals.thirty_sec)
+            message.delete(utilities.intervals.responses)
             msg.delete(utilities.intervals.thirty_sec)
         });
     }
