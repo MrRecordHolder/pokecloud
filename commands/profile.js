@@ -61,7 +61,7 @@ exports.run = (bot, message, args) => {
 
 
     // set home server
-    if(home_server === "") {
+    if(home_server === "" || home_server === undefined) {
         profile.set(userid, serverid, 'discord.serverid')
     };
 
@@ -74,6 +74,21 @@ exports.run = (bot, message, args) => {
     const embed = new Discord.RichEmbed()
     embed.setColor("RANDOM")
     embed.setThumbnail(user.avatarURL) 
+    
+
+    try {
+        if(bot.guilds.get(utilities.server_id).members.get(userid).roles.some(role => role.id === utilities.roles.patreon)) {
+            let current_patreon = profile.get(userid, 'patreon')
+            if(current_patreon === false) {
+                profile.set(userid, true, 'patreon')
+                let current_points = profile.get(userid, 'stats.total_points')
+                let patreon_bonus_points = current_points + 10
+                profile.set(userid, patreon_bonus_points, 'stats.total_points')
+            };
+        };
+    } catch {
+        console.log()
+    }
 
     // patreon display
     if(patreon === true) {
@@ -100,5 +115,8 @@ exports.run = (bot, message, args) => {
     // display roles
     embed.addField(`**Current Server Roles**`, message.guild.member(user).roles.map(r => r).join(" , "))
     
-    message.channel.send(embed);      
+    message.channel.send(embed).then(msg => {
+        message.delete(utilities.intervals.two_minutes)
+        msg.delete(utilities.intervals.two_minutes)
+    });
 };
