@@ -21,7 +21,7 @@ const image = require("../home/images.json")
 const utilities = require(`../home/utilities.json`)
 
 
-exports.run = (bot, message, args) => {
+exports.run = async (bot, message, args) => {
 
     // assign key shortcuts
     let guildSettings = bot.guildSettings
