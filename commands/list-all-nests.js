@@ -236,18 +236,12 @@ exports.run = (bot, message, args) => {
             if(messagetodelete !== "") {
 
                 if(bot.channels.some(ch => ch.id === channeltofind)) {
-                    try {
                         message.guild.channels.find(c => c.id === channeltofind).fetchMessage(messagetodelete).then(oldembed => {
                             if(oldembed) {
                                 oldembed.delete();
                             };
-                        });
-                    } catch {
-                        // could not find the message
-                    }
-                } else {
-                    // no channel found
-                }
+                        }).catch(error => {console.log});
+                };
             };
 
             // send new nest embed
