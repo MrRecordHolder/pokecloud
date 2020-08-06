@@ -446,6 +446,9 @@ exports.run = async (bot, message, args) => {
                     };
                 });
             }).catch(errors => { // embed message not found
+
+                console.log(errors)
+                
                 const embed_confirm = new Discord.RichEmbed()
                 nest.set(nestKey, nestPokemon, 'pokemon.current.name')
                 if(dexShiny === true) { // if the species can be found shiny in the wild
