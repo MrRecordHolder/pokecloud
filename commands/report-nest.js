@@ -314,7 +314,30 @@ exports.run = async (bot, message, args) => {
             
 
 
+            if(nestchannel === "" && messageid === "") {
+                const embed_confirm = new Discord.RichEmbed()
+                nest.set(nestKey, nestPokemon, 'pokemon.current.name')
+                if(dexShiny === true) { // if the species can be found shiny in the wild
+                    pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}-shiny@3x.png?raw=true`
+                } else { // if the species can not be found shiny in the wild
+                    pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}@3x.png?raw=true`
+                };
 
+                nest.set(nestKey, pokemonImg, 'pokemon.current.image')
+
+                // RESPONSE
+                embed_confirm.setThumbnail(pokemonImg)
+                embed_confirm.setColor(color.success)
+                embed_confirm.setAuthor(respon.titles.success)
+                embed_confirm.setDescription(`**${nestPokemon}** has been reported at **${nestName}**`)
+                embed_confirm.setFooter(`${nestName} is not currently listed in any channels.`)
+                return message.channel.send(embed_confirm).then(msg => {
+                    if(current_channel === nestchannel || ac_nestreports === true) {
+                        message.delete(utilities.intervals.thirty_sec)
+                        msg.delete(utilities.intervals.thirty_sec)
+                    };
+                });
+            };
 
 
 
@@ -446,8 +469,6 @@ exports.run = async (bot, message, args) => {
                     };
                 });
             }).catch(errors => { // embed message not found
-
-                console.log(errors)
                 
                 const embed_confirm = new Discord.RichEmbed()
                 nest.set(nestKey, nestPokemon, 'pokemon.current.name')
@@ -474,7 +495,6 @@ exports.run = async (bot, message, args) => {
                     };
                 });
             });
-
             }, utilities.intervals.responses);
 
             
