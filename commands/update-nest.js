@@ -227,28 +227,6 @@ exports.run = (bot, message, args) => {
                                     };
                                 }, utilities.interval * 3);  
 
-
-
-
-
-                                // points
-                                if(profile.has(userid)) {
-                                    let current_points = profile.get(userid, 'points.total')
-                                    let new_points = current_points + utilities.points.update_nest
-
-                                    // add new points
-                                    profile.set(userid, new_points, 'points.total')
-
-                                    // generate level
-                                    if(current_points < 100 && new_points > 99) {
-                                        profile.set(userid, 2, 'points.level')
-                                        // send direct message
-                                        message.author.send(`**You have leveled up to Level 2!**\nTotal Points: ${new_points}/199`)
-                                    }
-
-                                    console.log(current_points)
-                                };
-
                             });
 
                         }).catch(() => { // time ran out & data not provided
