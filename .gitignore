@@ -9,7 +9,6 @@ commands/migrate-nests.js
 commands/pokedex.js
 commands/reload.js
 commands/revert-nests.js
-commands/search-nests.js
 commands/set-admin-role.js
 commands/set-city.js
 commands/set-country.js
