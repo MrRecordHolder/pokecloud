@@ -37,17 +37,6 @@ exports.run = (bot, message, args) => {
     let language = guildSettings.get(serverid, "server.language")
     const respon = require("../home/languages/" + language.toLowerCase() + ".json")
 
-    // must be developer
-    if (message.author.id !== "373660480532643861") {
-        var developer = new Discord.RichEmbed()
-            .setColor(utilities.colors.error)
-            .setTitle("Only the developer can use this command")    
-        return message.channel.send({embed: developer})
-        .then(deleteIT => {
-            deleteIT.delete(2000)
-        });
-    };
-
 
 
     let userInput = args.join(" ").trim().split(",")
