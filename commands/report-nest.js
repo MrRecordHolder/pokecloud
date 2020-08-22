@@ -19,6 +19,7 @@ const Discord = require("discord.js")
 const color = require("../home/colors.json")
 const image = require("../home/images.json")
 const utilities = require(`../home/utilities.json`)
+const { server } = require("../keys/guildSettings")
 
 
 exports.run = async (bot, message, args) => {
@@ -225,7 +226,31 @@ exports.run = async (bot, message, args) => {
             let messageid = nest.get(nestKey, 'messageid')
             let currently_nesting = nest.get(nestKey, "pokemon.current.name")
             let ac_nestreports = guildSettings.get(serverid, 'autoclean.nestreports')
+            let google_dir = nest.get(nestKey, 'location.maps.google')
+            let servername = guildSettings.get(serverid, 'server.name')
 
+            let nestCity = nest.get(nestKey, 'location.city')
+            let nestState = nest.get(nestKey, 'location.state')
+            let nestCountry = nest.get(nestKey, 'location.country')
+            let pokestops = nest.get(nestKey, 'pokestops')
+            let gyms = nest.get(nestKey, 'gyms')
+            let exgyms = nest.get(nestKey, 'exgyms')
+            let spawns = nest.get(nestKey, 'spawns')
+
+
+
+
+            // emoji support
+            const emoji = require("../util/emoji.json")
+            const pokestopEmoji = bot.emojis.get(emoji.pokestop);
+            const gymEmoji = bot.emojis.get(emoji.gym);
+            const spawnEmoji = bot.emojis.get(emoji.spawn);
+            const exraidEmoji = bot.emojis.get(emoji.exgym);
+        
+
+
+            // generate discord memssage link
+            let Discord_message_link = `https://discordapp.com/channels/${serverid}/${nestchannel}/${messageid}`
 
 
 
@@ -259,7 +284,112 @@ exports.run = async (bot, message, args) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            if(dexShiny === true) { // if the species can be found shiny in the wild
+                var pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}-shiny@3x.png?raw=true`
+            } else { // if the species can not be found shiny in the wild
+                var pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}@3x.png?raw=true`
+            };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -317,11 +447,7 @@ exports.run = async (bot, message, args) => {
             if(nestchannel === "" && messageid === "") {
                 const embed_confirm = new Discord.RichEmbed()
                 nest.set(nestKey, nestPokemon, 'pokemon.current.name')
-                if(dexShiny === true) { // if the species can be found shiny in the wild
-                    pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}-shiny@3x.png?raw=true`
-                } else { // if the species can not be found shiny in the wild
-                    pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}@3x.png?raw=true`
-                };
+                
 
                 nest.set(nestKey, pokemonImg, 'pokemon.current.image')
 
@@ -450,8 +576,7 @@ exports.run = async (bot, message, args) => {
                 // finish editing the embed
                 editEmbed.edit(embed);
 
-                // generate discord memssage link
-                let Discord_message_link = `https://discordapp.com/channels/${serverid}/${nestchannel}/${messageid}`
+                
 
                 // RESPONSE MESSAGE
                 const embed_confirm = new Discord.RichEmbed()
@@ -496,6 +621,131 @@ exports.run = async (bot, message, args) => {
                 });
             });
             }, utilities.intervals.responses);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // if nestPokemon matches any profile farming key, send user dm
+
+                                
+                
+            profile.forEach(p => {
+
+                if(bot.guilds.get(serverid).member(p.discord.id)) {
+                    if(p.farm.some(pokemon => nestPokemon.includes(pokemon))) {
+
+                        setTimeout(function () {
+                            bot.users.get(p.discord.id).send(`${nestPokemon} has been reported nesting at a location nearby! Get all nest and species details below...`)
+
+                            var farmNotification = new Discord.RichEmbed()
+
+                            farmNotification.setAuthor(servername)
+
+                            farmNotification.setTitle(`**${nestName}**`)
+
+                            if(exgyms < 1) {
+                                farmNotification.setDescription(`[${respon.nest.directions}](${google_dir}) | [View In Discord](${Discord_message_link})\n${pokestopEmoji}${respon.nest.pokestops}: ${pokestops} ${gymEmoji}${respon.nest.gyms}: ${gyms}\n${spawnEmoji}${respon.nest.spawns}: ${spawns}`)
+                            } else {
+                                farmNotification.setDescription(`[${respon.nest.directions}](${google_dir}) | [View In Discord](${Discord_message_link})\n${pokestopEmoji}${respon.nest.pokestops}: ${pokestops} ${gymEmoji}${respon.nest.gyms}: ${gyms}\n${exraidEmoji}${respon.nest.exgyms}: ${exgyms} ${spawnEmoji}${respon.nest.spawns}: ${spawns}`)
+                            }              
+
+                            
+                            if(nestPokemon !== "?") {
+                                if(capitalize_Words(dexPrimaryType) === "Normal") {
+                                    farmNotification.setColor('CCD081')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Fighting") {
+                                    farmNotification.setColor('AE4F3C')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Psychic") {
+                                    farmNotification.setColor('D47FB3')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Dragon") {
+                                    farmNotification.setColor('494788')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Water") {
+                                    farmNotification.setColor('6DA0D0')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Fairy") {
+                                    farmNotification.setColor('FFC3D2')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Ice") {
+                                    farmNotification.setColor('BDEAF5')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Flying") {
+                                    farmNotification.setColor('C8AFD8')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Ghost") {
+                                    farmNotification.setColor('7F6193')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Fire") {
+                                    farmNotification.setColor('FF9051')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Steel") {
+                                    farmNotification.setColor('CECECE')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Grass") {
+                                    farmNotification.setColor('79CB7B')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Ground") {
+                                    farmNotification.setColor('DEE1A6')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Rock") {
+                                    farmNotification.setColor('AAAC72')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Dark") {
+                                    farmNotification.setColor('6F635B')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Electric") {
+                                    farmNotification.setColor('EEFC46')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Poison") {
+                                    farmNotification.setColor('7A5289')
+                                }
+                                if(capitalize_Words(dexPrimaryType) === "Bug") {
+                                    farmNotification.setColor('B1C858')
+                                }
+                            
+                            
+                                if(dexShiny === true) {
+                                    if(dexSecondaryType === "") {
+                                        farmNotification.addField(`#${dexNumber} **${nestPokemon}** ${shinyEmoji}`,`Type: ${ptypeEmoji} ${capitalize_Words(dexPrimaryType)}\nBoost: ${pboostEmoji} ${capitalize_Words(dexPrimaryBoost)}`)
+                                    } else {
+                                        farmNotification.addField(`#${dexNumber} **${nestPokemon}** ${shinyEmoji}`,`Types: ${ptypeEmoji} ${capitalize_Words(dexPrimaryType)} ${stypeEmoji} ${capitalize_Words(dexSecondaryType)}\nBoosts: ${pboostEmoji} ${capitalize_Words(dexPrimaryBoost)} ${sboostEmoji} ${capitalize_Words(dexSecondaryBoost)}`)
+                                    }
+                                } else {
+                                    if(dexSecondaryType === "") {
+                                        farmNotification.addField(`#${dexNumber} **${nestPokemon}**`,`Type: ${ptypeEmoji} ${capitalize_Words(dexPrimaryType)}\nBoost: ${pboostEmoji} ${capitalize_Words(dexPrimaryBoost)}`)
+                                    } else {
+                                        farmNotification.addField(`#${dexNumber} **${nestPokemon}**`,`Types: ${ptypeEmoji} ${capitalize_Words(dexPrimaryType)} ${stypeEmoji} ${capitalize_Words(dexSecondaryType)}\nBoosts: ${pboostEmoji} ${capitalize_Words(dexPrimaryBoost)} ${sboostEmoji} ${capitalize_Words(dexSecondaryBoost)}`)
+                                    }
+                                };
+
+                                farmNotification.setThumbnail(pokemonImg)
+                            };
+
+                            bot.users.get(p.discord.id).send({embed: farmNotification})
+                        }, utilities.intervals.responses);
+
+                    };
+                };
+            });
 
             
 
