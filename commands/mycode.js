@@ -36,6 +36,7 @@ exports.run = (bot, message, args) => {
     const respon = require("../home/" + language.toLowerCase() + "/responses.json")
 
     let trainer_code = profile.get(userid, 'trainer.code')
+    let trainer_name = profile.get(userid, 'trainer.name')
 
     if(!profile.has(userid)) {
         return message.reply(`You need to create your profile before setting your Trainer name. Reply back with **$profile** to create one now!`).then(msg => {
@@ -45,6 +46,19 @@ exports.run = (bot, message, args) => {
     };
 
     if(trainer_code !== "") {
+
+        if(trainer_name !== "") {
+            message.channel.send(trainer_name).then(msg => {
+                message.delete(utilities.intervals.responses)
+                msg.delete(utilities.intervals.two_minutes)
+            });
+        } else {
+            message.channel.send(nickname).then(msg => {
+                message.delete(utilities.intervals.responses)
+                msg.delete(utilities.intervals.two_minutes)
+            });
+        };
+
         message.channel.send(`${trainer_code}`).then(msg => {
             message.delete(utilities.intervals.responses)
             msg.delete(utilities.intervals.two_minutes)
