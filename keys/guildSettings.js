@@ -25,12 +25,13 @@ const guildSettings = {
         tagchannel: ""
     },
     autoclean: {
-        nestreports: false
+        nestreports: false,
+        profilecommands: false
     }
 
     // bots: {
         // miscord: false
     // }
-    }
+};
 
 module.exports = guildSettings
