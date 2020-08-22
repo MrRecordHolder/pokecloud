@@ -21,19 +21,11 @@ const utilities = require("../home/utilities.json")
 
 exports.run = (bot, message, args) => {
 
-    // must be developer
-    if (message.author.id !== "373660480532643861") {
-        var developer = new Discord.RichEmbed()
-            .setColor(utilities.colors.error)
-            .setTitle("Only the developer can use this command")    
-        return message.channel.send({embed: developer})
-        .then(deleteIT => {
-            deleteIT.delete(2000)
-        });
-    };
-
     let serverid = message.guild.id
     let userid = message.author.id
+
+    let user = message.mentions.users.first() || message.author
+    let nickname = message.guild.member(user).displayName
 
     let dex = bot.goPokedex
     let profile = bot.trainerProfile
@@ -51,8 +43,7 @@ exports.run = (bot, message, args) => {
     let pokemon = capitalize_Words(output)
 
     // emoji support
-    const emoji = require("../util/emoji.json")
-    const verifiedEmoji = bot.emojis.get(emoji.verified);
+    const greenCheckMarkEmoji = bot.emojis.get(utilities.emojis.green_check_mark);
 
     if(!profile.has(userid)) {
         return
@@ -62,7 +53,7 @@ exports.run = (bot, message, args) => {
     // send initial response
     const master_embed = new Discord.RichEmbed()
     master_embed.setColor(utilities.colors.caution)
-    master_embed.setDescription(`*Searching the Pokedex...*`)
+    master_embed.setDescription(`*Searching Pokedex & Profiles...*`)
     message.channel.send(master_embed).then(master_edit => {
 
         let pokemon_key = dex.findKey(p => p.name[language.toLowerCase()] === pokemon);
@@ -73,39 +64,60 @@ exports.run = (bot, message, args) => {
 
                 let farming = profile.get(userid, 'farm').sort().join(", ")
 
+
+                let dexShiny = dex.get(pokemon, "shiny.wild")
+                let dexNumber = dex.get(pokemon, "dex")
+                if(dexShiny === true) { // if the species can be found shiny in the wild
+                    var pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${pokemon.toLowerCase()}-shiny@3x.png?raw=true`
+                } else { // if the species can not be found shiny in the wild
+                    var pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${dexNumber}-${nestPokemonLow}@3x.png?raw=true`
+                };
+
                 // check to see if pokemon is already farmed
                 if(farming.includes(pokemon_key)) {
                     master_embed.setColor(utilities.colors.error)
-                    master_embed.setDescription(`❌ You are already farming **${pokemon_key}**...`)
-                    return master_edit.edit(master_embed)
+                    master_embed.setThumbnail(pokemonImg)
+                    master_embed.setTitle(`❌ Notification Disabled`)
+                    master_embed.setDescription(`You will no longer receive notifications for **${pokemon_key}**.`)
+                    profile.remove(userid, pokemon_key, 'farm')
+                    master_edit.edit(master_embed)
+
+                    var log = new Discord.RichEmbed()
+                        .setTitle(`${pokemon_key} Notification Disabled`)
+                        .setColor(utilities.colors.error)
+                        .setDescription(`User: ${nickname}\nDiscord ID: ${userid}\nServer ID: ${serverid}`)
+                    return bot.channels.get(utilities.channels.profile_log).send({embed: log})
                 } else {
                     profile.push(userid, pokemon_key, 'farm')
                 }
 
-                let shiny_general = dex.get(pokemon_key, 'shiny.general')
-                let pokedex_number = dex.get(pokemon_key, 'dex')
 
+                
+    
+                master_embed.setThumbnail(pokemonImg)
                 master_embed.setColor(utilities.colors.success)
 
-                if(shiny_general === true) {
-                    var pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${pokedex_number}-${pokemon_key.toLowerCase()}-shiny@3x.png?raw=true`
-                } else {
-                    var pokemonImg = `https://github.com/MrRecordHolder/pokecloud/blob/master/images/pokemon/${pokedex_number}-${pokemon_key.toLowerCase()}@3x.png?raw=true`
-                }
-
-                master_embed.setThumbnail(pokemonImg)
-                master_embed.setTitle(`**${verifiedEmoji} Notification Set For ${pokemon_key}!**`)
-                master_embed.setDescription(`You will now recieve notifications via direct message for all servers you are in when **${pokemon_key}** is reported nesting.`)
-                master_embed.setFooter(`You have earned 5 points toward your profile level!`)
+                master_embed.setTitle(`${greenCheckMarkEmoji} Notification Set`)
+                master_embed.setDescription(`You will now recieve notifications for __all__ servers you are in when **${pokemon_key}** is reported nesting.`)
+                master_embed.setFooter(`❓ Run this command again to turn off notifications`)
                 master_edit.edit(master_embed)
+
+
+
+                var log = new Discord.RichEmbed()
+                    .setTitle(`${pokemon_key} Notification Set`)
+                    .setColor(utilities.colors.success)
+                    .setDescription(`User: ${nickname}\nDiscord ID: ${userid}\nServer ID: ${serverid}`)
+                bot.channels.get(utilities.channels.profile_log).send({embed: log})
 
             } else {
                 master_embed.setColor(utilities.colors.error)
-                master_embed.setDescription(`❌ **Pokemon not found. Check the spelling and try again...**`)
+                master_embed.setTitle(`❌ Error`)
+                master_embed.setDescription(`**Pokemon not found.** Check the spelling and try again...`)
                 master_edit.edit(master_embed)
             };
 
-        }, utilities.interval * 2);
+        }, utilities.intervals.responses);
 
     });
 };
