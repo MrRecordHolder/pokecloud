@@ -18,7 +18,6 @@ module.exports.command = {
 
 const Discord = require("discord.js")
 const color = require("../home/colors.json")
-const image = require("../home/images.json")
 
 let utilities = require("../home/utilities.json")
 
@@ -125,8 +124,6 @@ exports.run = (bot, message, args) => {
     var exgyms = nest.get(key, 'exgyms')
     var spawns = nest.get(key, 'spawns')
     var google_map = nest.get(key, 'location.maps.google')
-    var city = nest.get(key, 'location.city')
-    var state = nest.get(key, 'location.state')
                             
 
 
@@ -820,11 +817,11 @@ exports.run = (bot, message, args) => {
             } else if(PROP === "spawns") {
                 nest.set(key, NEW_VALUE, 'spawns')
             } else if(PROP === "city") {
-                nest.set(key, NEW_VALUE, 'location.city')
+                nest.set(key, capitalize_Words(NEW_VALUE), 'location.city')
             } else if(PROP === "state") {
-                nest.set(key, NEW_VALUE, 'location.state')
+                nest.set(key, capitalize_Words(NEW_VALUE), 'location.state')
             } else if(PROP === "country") {
-                nest.set(key, NEW_VALUE, 'location.country')
+                nest.set(key, capitalize_Words(NEW_VALUE), 'location.country')
             } else if(PROP === "map" || PROP === "coordinates") {
                 if(output[3]) {
                     // lat & lon
@@ -835,6 +832,8 @@ exports.run = (bot, message, args) => {
                     // lat only
                     nest.set(key, NEW_VALUE, 'location.maps.lat')
                 }
+            } else if(PROP === "alias") {
+                nest.set(key, capitalize_Words(NEW_VALUE), 'name.alias')
             } else {
                 return;
             }
@@ -847,8 +846,6 @@ exports.run = (bot, message, args) => {
             var gyms = nest.get(key, 'gyms')
             var exgyms = nest.get(key, 'exgyms')
             var spawns = nest.get(key, 'spawns')
-            var city = nest.get(key, 'location.city')
-            var state = nest.get(key, 'location.state')
             var lat = nest.get(key, 'location.maps.lat')
             var lon = nest.get(key, 'location.maps.lon')
 
@@ -865,7 +862,7 @@ exports.run = (bot, message, args) => {
             if(PROP === "map" || PROP === "coordinates") {
                 confirm_embed.setTitle(`${nest_name} has been relocated to **${NEW_VALUE}, ${NEW_VALUE_2}**`)
             } else {
-                confirm_embed.setTitle(`${nest_name} has been updated to **${NEW_VALUE} ${capitalize_Words(PROP)}**`)
+                confirm_embed.setTitle(`The ${PROP} for ${nest_name} has been updated to ${NEW_VALUE}`)
             }
             // send nest confirmation embed
             message.channel.send(confirm_embed).then(editConfirmEmbed => {
