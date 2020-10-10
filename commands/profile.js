@@ -119,9 +119,9 @@ exports.run = (bot, message, args) => {
       embed.addField(`**Trainer Code**`, `Not Set`)
   };
 
-  if(farming !== "") {
-      embed.addField(`Farming Notifications`, farming.join(", "))
-  };
+  if(farming.length > 0) {
+    embed.addField(`**Farming Notifications**`, farming.join(", "))
+  }
 
   // display roles
   embed.addField(`**Current Server Roles**`, message.guild.member(user).roles.map(r => r).join(" , "))
